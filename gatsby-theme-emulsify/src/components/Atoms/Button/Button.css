@@ -1,0 +1,22 @@
+.btn {
+  background-color: var(--color-var--gray-darkest);
+  border: none;
+  border-radius: 0.15rem;
+  color: var(--color-var--white);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 2.25;
+  margin: 0;
+  padding: 0.25rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.1s ease-in-out;
+}
+
+.btn:hover,
+.btnWhite:hover {
+  background-color: var(--color-var--gray-light);
+}

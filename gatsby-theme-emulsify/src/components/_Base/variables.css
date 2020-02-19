@@ -1,0 +1,45 @@
+:root {
+  /* Spacing */
+  --gutter-width: 1rem;
+  /* Fonts */
+  --font-family-body: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, sans-serif;
+  --font-family-header: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --font-family-code: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono", "Liberation Mono", Menlo, Courier, monospace;
+  /* Borders */
+  --border-radius: 3px;
+  /* Color Variables */
+  --color-var--yellow: #ff0;
+  --color-var--gray-lighter: #E2EBF2;
+  --color-var--gray-light: #C1C9CF;
+  --color-var--gray: #889096;
+  --color-var--gray-dark: #6E7479;
+  --color-var--gray-darker: #505558;
+  --color-var--gray-darkest: #313436;
+  --color-var--black: #313436;
+  --color-var--white: #fff;
+  /* Color Usage */
+  /* Defaults */
+  --color--body-text: var(--color-var--gray-darkest);
+  /* Header */
+  --color--header-bg: var(--color-var--black);
+  --color--header-text: var(--color-var--white);
+  /* Tabs */
+  --color--tabs-default-bg: var(--color-var--gray-dark);
+  --color--tabs-default-text: var(--color-var--white);
+  --color--tabs-hover-bg: var(--color-var--gray-darker);
+  --color--tabs-active-bg: var(--color-var--white);
+  --color--tabs-active-text: var(--color-var--gray-dark);
+  /* Sidebar */
+  --color--sidebar-bg: var(--color-var--gray);
+  --color--sidebar-text: var(--color-var--white);
+  --color--sidebar-dropdown: var(--color-var--gray-lighter);
+  /* Parent Menu */
+  --color--parent-menu-bg: var(--color-var--gray-darkest);
+  --color--parent-menu-text: var(--color-var--white);
+
+  /* Dots */
+  --dot-bg-color: var(--color-var--gray-darkest);
+  --dot-color: var(--color-var--gray-darker);
+  --dot-size: 2px;
+  --dot-space: 22px;
+}

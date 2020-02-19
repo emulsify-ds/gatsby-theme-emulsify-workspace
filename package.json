@@ -1,14 +1,15 @@
 {
-  "name": "gatsby-starter-theme-workspace",
+  "name": "gatsby-theme-emulsify-workspace",
   "private": true,
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "yarn workspace example build"
+    "build": "yarn workspace example build",
+    "develop": "yarn workspace example develop"
   },
   "workspaces": [
-    "gatsby-theme-minimal",
+    "gatsby-theme-emulsify",
     "example"
   ]
 }

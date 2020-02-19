@@ -1,0 +1,58 @@
+{
+  "name": "gatsby-theme-emulsify",
+  "version": "1.0.0-alpha.7",
+  "description": "Emulsify Style Guide",
+  "main": "gatsby-config.js",
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "gatsby-plugin",
+    "style guide",
+    "emulsify",
+    "design system"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fourkitchens/gatsby-theme-emulsify.git"
+  },
+  "author": "Evan Willhite <evan@fourkitchens.com>",
+  "license": "MIT",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.5.5",
+    "@mdx-js/react": "^1.5.5",
+    "cross-env": "7.0.0",
+    "gatsby": "^2.19.18",
+    "gatsby-plugin-mdx": "^1.0.73",
+    "gatsby-plugin-page-creator": "^2.1.40",
+    "gatsby-plugin-react-helmet": "^3.1.22",
+    "gatsby-plugin-react-svg": "^3.0.0",
+    "gatsby-plugin-sharp": "^2.4.5",
+    "gatsby-source-filesystem": "^2.1.48",
+    "gatsby-transformer-remark": "^2.6.52",
+    "gh-pages": "^2.2.0",
+    "prism-react-renderer": "^1.0.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-react-app": "^5.2.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react-hooks": "^2.4.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.toc {
+  background: #eee;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.toc__h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.toc__list {
+  margin: 0;
+}
+
+.toc__list .toc__list {
+  margin-left: 1rem;
+}
+
+.toc__item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc__item::before {
+  content: "-";
+  margin-right: 0.5rem;
+}

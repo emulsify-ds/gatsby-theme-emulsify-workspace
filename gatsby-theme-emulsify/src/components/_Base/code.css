@@ -1,0 +1,35 @@
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--font-family-code);
+  font-size: 0.85rem;
+  line-height: 1.45rem;
+}
+code,
+pre {
+  background: hsla(0, 0%, 0%, 0.04);
+  border-radius: var(--border-radius);
+}
+code {
+  padding: 0.2em 0;
+}
+pre {
+  margin: 0 0 1.45rem 0;
+  padding: 1.45rem;
+  overflow: auto;
+  word-wrap: normal;
+}
+code:before,
+code:after,
+tt:before,
+tt:after {
+  letter-spacing: -0.2em;
+  content: " ";
+}
+pre code:before,
+pre code:after,
+pre tt:before,
+pre tt:after {
+  content: "";
+}

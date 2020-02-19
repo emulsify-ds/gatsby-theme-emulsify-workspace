@@ -1,0 +1,37 @@
+ul,
+ol {
+  margin-left: 0 0 1.45rem 1.45rem;
+  padding: 0;
+  list-style-position: outside;
+  list-style-image: none;
+}
+dl {
+  margin: 0 0 1.45rem;
+  padding: 0;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin: 0 0 1.45rem 0;
+  padding: 0;
+}
+li {
+  margin-bottom: calc(1.45rem / 2);
+}
+ul li,
+ol li {
+  padding-left: 0;
+}
+li > ul,
+li > ol {
+  margin-left: 1.45rem;
+  margin-bottom: calc(1.45rem / 2);
+  margin-top: calc(1.45rem / 2);
+}
+li *:last-child {
+  margin-bottom: 0;
+}
+li > p {
+  margin-bottom: calc(1.45rem / 2);
+}
