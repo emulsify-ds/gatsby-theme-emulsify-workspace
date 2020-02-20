@@ -1,6 +1,7 @@
 const _ = require("lodash");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
+// This should get removed eventually https://github.com/gatsbyjs/gatsby/issues/13072#issuecomment-523204930.
 const express = require(`express`);
 exports.onCreateDevServer = ({ app }) => {
   app.use(express.static(`public`));

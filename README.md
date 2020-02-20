@@ -2,74 +2,48 @@
 
 [![Four Kitchens](https://img.shields.io/badge/4K-Four%20Kitchens-35AA4E.svg)](https://fourkitchens.com/)
 
-<h4 align="center">A Design System <em>Generator</em> powered by <a href="https://gatsbyjs.org">Gatsby Themes</a> and <a href="https://github.com/mdx-js/specification">MDX</a>.
+<h4 align="center">A Style Guide <em>Generator</em> powered by <a href="https://gatsbyjs.org">Gatsby Themes</a> and <a href="https://github.com/mdx-js/specification">MDX</a>.
 </h4>
 
 ## A Modern Workflow is Component-driven
 
-Components win. They’re the building blocks of UI. Everywhere you look, people are building component libraries and they’re using component based frameworks to build them. Working on a component library is hard work and ensuring an organization buys into your design system is even harder. Storybook has become the defacto ["workshop"](http://bradfrost.com/blog/post/the-workshop-and-the-storefront/) for components. However, it is not the appropriate tool for a organization's design system, which includes all sorts of other information and may only display a subset of the components in your library.
-
-Emulsify is a customizable and themeable design system _generator_ built with Gatsby. It reads your component library and builds a design system for you. Using MDX you can author custom documentation for each component and other helpful pages for your design system's audience.
+Emulsify is a customizable and themeable style guide _generator_ built with Gatsby. It reads your documentation and component library and builds a style guide for you. Using MDX you can author custom documentation for each component and other helpful pages for your design system's audience.
 
 ## Setup
 
 ### Quickstart
 
-This is a Yarn Workspace, so to get started quickly, you can use the example set up in this project. Simply clone this project and run `yarn develop` at root (which actually runs `yarn workspace example develop`)
+This is a Yarn Workspace, so to get started quickly, you can use the example set up in this project. Simply clone this project and run `yarn develop` at root (which actually runs `yarn workspace example develop`).
 
-#### Manual Installation
+#### Documentation Pages
 
-* Create a directory for your design system.
-```sh
-mkdir my-design-system
-cd my-design-system
-```
-* `yarn init`
-* `yarn add react react-dom gatsby gatsby-theme-emulsify`
-* Create a `gatsby-config.js`
-```js
-module.exports = {
-  plugins: [
-    {
-      resolve: "gatsby-theme-emulsify",
-      options: {
-        componentLibPath: 'components', // Where your component library lives
-        docPagesPath: 'styleguide', // Where your custom styleguide pages live
-        basePath: __dirname, // Needed to make above paths relative to your project
-        designSystems: [
-          {
-            name: "Acme Corporation", // Other design system you may want to link to in a parent/child situation
-            link: "https://acme-design-system.netlify.com"
-          },
-        ],
-        // Site Metadata for style guide
-        siteMetadata: {
-          title: "B&E Security",
-          description: "Your favorite security company",
-          author: "B&E Security",
-        }
-      },
-    },
-  ],
-}
-```
-* In your project root, create a `components` directory and add a directory for each component.
-* Add your component and an adjacent `.yml` file that will be used to populate the data needed to render the component.
-* In your project root, create a `styleguide` directory and inside it create a `Components` directory with an empty `.md` file in it. This is needed for placing links to each component in the sidebar.
-```md
----
-title: "Components"
-description: "This is the components section"
-publishToStyleGuide: true
----
-```
-* You're now ready to start documenting your component library!
+Writing Markdown and MDX is supported out of the box. As you can see in the example project, create a `styleguide` directory in the root of your starter (path is also configurable in your `gatsby-config.js` file)and start adding directories and pages. Note: there is one special directory that will be treated uniquely and that is the `Components` directory. It is expected your project components will live somewhere outside of your style guide documentation, so this directory is populated automatically. Read on for details:
 
 ### Documenting Components
 
-Create a `Code.mdx` file alongside one of your component.
+As above, documenting your components is supported out of the box. By default it will look in your `components` directory, but that path is also configurable via `gatsby-config.js`. Create a `Code.mdx` file alongside one of your component.
 
-Inside of `Code.mdx`, use the `<Code />`, `<Component />`, and/or `<TableOfContents />` components in your MDX to fluidly author your docs and inline code snippets and rendered examples of your component.
+If you'd like display your components in your style guide, there is an example of how to do this in the example project using Storybook. Here were the steps used to leverage that you would follow in your project:
+
+1. Install Storybook `npx -p @storybook/cli sb init` (use the command that makes sense for your Storybook instance)
+2. In `package.json`, change your Storybook build script to be:
+
+`"build-storybook": "build-storybook -o static/storybook"`
+
+3. Also in that file, change the following two Gatsby commands to be:
+
+```
+"develop": "npm run build-storybook && gatsby develop",
+"build": "npm run build-storybook && gatsby build",
+```
+
+Now, when running `yarn develop`, you will be building your Storybook instance to Gatsby's static directory as a part of your Gatsby workflow. Now, you can go to the file you'd like to insert your component into and use the following shortcode to print your Storybook component:
+
+`<StorybookComponent id="button--emoji" height="75px" />`
+
+The `id` for your component is the ID that Storybook uses to identify the component in their iframe, which is `COMPONENT_DIRECTORY--COMPONTENT_NAME`. Now you will see your component shown in your documentation. See the example project component directory for a couple of examples.
+
+TODO: Document `<TableOfContents />`
 
 #### Example
 ```mdx

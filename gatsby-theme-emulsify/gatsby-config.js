@@ -1,8 +1,8 @@
 const path = require("path");
 
 module.exports = ({
-  componentLibPath = "src/components",
-  docPagesPath = "styleguide/pages",
+  componentLibPath = "components",
+  docPagesPath = "styleguide",
   basePath = "/",
   designSystems = [
     {
