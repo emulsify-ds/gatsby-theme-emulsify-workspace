@@ -1,6 +1,11 @@
 const _ = require("lodash");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
+const express = require(`express`);
+exports.onCreateDevServer = ({ app }) => {
+  app.use(express.static(`public`));
+};
+
 /**
  * Uses the presence of published md files as a way to decide what assets should show in the styleuide and groups them together.
  */

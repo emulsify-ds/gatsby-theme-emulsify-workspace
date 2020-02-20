@@ -7,6 +7,7 @@ import "./layout.css";
 
 // Components for MDX
 import TableOfContents from "../Molecules/TableOfContents/TableOfContents.component";
+import StorybookComponent from "../Atoms/StorybookComponent/StorybookComponent.component";
 
 const HEADINGS = [
   ({ children, props }) => <h1 {...props}>{children}</h1>,
@@ -47,7 +48,8 @@ export default props => {
     h6: Heading(6),
     TableOfContents: () => (
       <TableOfContents items={post.tableOfContents.items} />
-    )
+    ),
+    StorybookComponent
   });
   const site = props.data.site;
   const docPages = props.data.allMdx.edges;
