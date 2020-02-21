@@ -1,4 +1,5 @@
 const _ = require("lodash");
+const path = require("path");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 // This should get removed eventually https://github.com/gatsbyjs/gatsby/issues/13072#issuecomment-523204930.
