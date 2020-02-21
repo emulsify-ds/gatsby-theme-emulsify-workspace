@@ -13,8 +13,7 @@ import { vs2015 } from "react-syntax-highlighter/dist/esm/styles/hljs";
  * Component that renders a CodeSnippet.
  */
 const Code = ({ children, language, component }) => {
-  const codeMarkup = reactElementToJSXString(children);
-  console.log(children);
+  const codeMarkup = reactElementToJSXString(component());
 
   return (
     <SyntaxHighlighter language={language} style={vs2015} wrapLines>
@@ -24,7 +23,7 @@ const Code = ({ children, language, component }) => {
 };
 
 Code.propTypes = {
-  component: PropTypes.element,
+  component: PropTypes.func,
   language: PropTypes.string
 };
 

@@ -5,14 +5,15 @@ tab: "Code"
 tabOrder: 1
 publishToStyleGuide: true
 ---
-import CodeTest from "./Code.component.js";
-import Button from "./Button.component"
+import { Emoji } from "./Button.stories"
 
 # This is a Button
 
 Below you will see the default implementation of the button component.
 
 <StorybookComponent id="button--emoji" height="75px" />
-<CodeTest><Button /></CodeTest>
+
+The code for this looks like:
+<Code component={Emoji} />
 
 And below that is whatever content you like.
