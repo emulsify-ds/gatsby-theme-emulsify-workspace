@@ -13,23 +13,25 @@ import "./code-snippet.css";
 /**
  * Component that renders a CodeSnippet.
  */
-const Code = ({ children }) => {
+const Code = ({ children, language }) => {
   const codeMarkup = ReactDOMServer.renderToString(children);
   console.log(children);
 
   return (
-    <SyntaxHighlighter language="javascript" style={vs2015} wrapLines>
+    <SyntaxHighlighter language={language} style={vs2015} wrapLines>
       {codeMarkup}
     </SyntaxHighlighter>
   );
 };
 
 Code.propTypes = {
-  component: PropTypes.element
+  component: PropTypes.element,
+  language: PropTypes.string
 };
 
 Code.defaultProps = {
-  component: null
+  component: null,
+  language: "javascript"
 };
 
 export default Code;
