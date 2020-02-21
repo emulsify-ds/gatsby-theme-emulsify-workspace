@@ -8,6 +8,7 @@ import "./layout.css";
 // Components for MDX
 import TableOfContents from "../Molecules/TableOfContents/TableOfContents.component";
 import StorybookComponent from "../Atoms/StorybookComponent/StorybookComponent.component";
+import CodeBlock from "../Atoms/CodeBlock/CodeBlock.component";
 import Code from "../Atoms/Code/Code.component";
 
 const HEADINGS = [
@@ -51,6 +52,7 @@ export default props => {
       <TableOfContents items={post.tableOfContents.items} />
     ),
     StorybookComponent,
+    CodeBlock,
     Code
   });
   const site = props.data.site;

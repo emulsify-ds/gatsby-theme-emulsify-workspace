@@ -1,5 +1,4 @@
 const _ = require("lodash");
-const path = require("path");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 // This should get removed eventually https://github.com/gatsbyjs/gatsby/issues/13072#issuecomment-523204930.
@@ -7,27 +6,6 @@ const express = require(`express`);
 exports.onCreateDevServer = ({ app }) => {
   app.use(express.static(`public`));
 };
-
-/**
- * Uses the presence of published md files as a way to decide what assets should show in the styleuide and groups them together.
- */
-function createAssetMap(mdFiles) {
-  const dirs = {};
-  return mdFiles.reduce((acc, current) => {
-    const mdParentDir = current.fields.parentDir;
-    if (!dirs[mdParentDir]) {
-      dirs[mdParentDir] = true;
-      return [
-        ...acc,
-        {
-          mdFile: current
-        }
-      ];
-    }
-
-    return acc;
-  }, []);
-}
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
@@ -61,7 +39,6 @@ exports.createPages = ({ actions, graphql }) => {
     // Create component pages.
     const mdFiles = result.data.allMdx.nodes;
 
-    const assetMap = createAssetMap(mdFiles);
 
     mdFiles.forEach(mdFile => {
       const fileRead = Promise.resolve("No Code found");
