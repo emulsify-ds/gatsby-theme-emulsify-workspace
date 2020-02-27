@@ -13,7 +13,7 @@ Emulsify is a customizable and themeable style guide _generator_ built with Gats
 
 ### Quickstart
 
-This is a Yarn Workspace, so to get started quickly, you can use the example set up in this project. Simply clone this project and run `yarn develop` at root (which actually runs `yarn workspace example develop`).
+This is a Yarn Workspace, so to get started quickly, you can use the example set up in this project. Simply clone this project and run `yarn` to install dependencies, and then `yarn develop` at root (which actually runs `yarn workspace example develop`).
 
 #### Documentation Pages
 
@@ -46,6 +46,7 @@ The `id` for your component is the ID that Storybook uses to identify the compon
 TODO: Document `<TableOfContents />`
 
 #### Example
+
 ```mdx
 ---
 title: "CTAs"
@@ -72,11 +73,12 @@ This file will be used to generate a "Code" tab on CTA component documentation. 
 
 #### Custom MDX components available:
 
-* `<Code />` renders the source for you component with syntax highlighting
-* `<Component />` renders your component inline
-* `<TableOfContents />` renders a Table of Contents for the given page
+- `<Code />` renders the source for you component with syntax highlighting
+- `<Component />` renders your component inline
+- `<TableOfContents />` renders a Table of Contents for the given page
 
 ### Custom pages
+
 In a `styleguide` directory in your component library root directory, you can create custom pages to be added to your design system.
 
 Inside `styleguide`, create a directory called `1__Getting Started`.
@@ -106,15 +108,17 @@ This page will be automatically added to the menu bar in your design system.
 
 The following design systems were build with Emulsify:
 
-* https://my-design-system-emulsify.netlify.com/
-* https://acme-design-system-emulsify.netlify.com/
+- https://my-design-system-emulsify.netlify.com/
+- https://acme-design-system-emulsify.netlify.com/
 
 ## Contributing
 
 ### Setup
-* TODO
+
+- TODO
 
 ## FAQs on component driven design/development
+
 <details>
 <summary>
 <b>Q: What is Component-driven Development?</b>
@@ -132,6 +136,7 @@ Everyone loves a style guide, but few projects are able to maintain them. Emulsi
 </details>
 
 ## Roadmap
+
 - [Theme UI](https://theme-ui.com/) integration
 - React support
 - Move Twig functionality to Gatsby plugin
