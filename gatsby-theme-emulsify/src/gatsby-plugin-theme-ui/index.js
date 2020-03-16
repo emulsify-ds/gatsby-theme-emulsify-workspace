@@ -24,7 +24,12 @@ export default {
   colors: {
     text: "#313436",
     background: "#fff",
-    dark: "#000"
+    white: "#fff",
+    gray: "#889096",
+    grayDark: "#6E7479",
+    grayDarker: "#505558",
+    grayDarkest: "#313436",
+    black: "#000"
   },
   fonts: {
     body:
@@ -54,6 +59,7 @@ export default {
     body: 1.5,
     heading: 1.7
   },
+  radii: ["3px"],
   styles: {
     root: {
       fontFamily: "body",
@@ -88,7 +94,7 @@ export default {
     a: {
       color: "text",
       ":hover, :active": {
-        color: "dark"
+        color: "black"
       }
     }
   }

@@ -8,7 +8,6 @@ import Tabs from "../Organisms/Tabs/Tabs.component";
 
 import "./site.css";
 import "./main.css";
-import "./main-design.css";
 
 export default ({
   title,
@@ -77,7 +76,10 @@ export default ({
             className="main-content-content"
             sx={{
               px: [4, null, 16],
-              py: 12
+              py: 12,
+              "& h1": {
+                fontSize: 5
+              }
             }}
           >
             <MDXRenderer>{body}</MDXRenderer>

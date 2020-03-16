@@ -1,17 +1,52 @@
 .sidebar {
-  background-color: var(--color--sidebar-bg);
-  color: var(--color--sidebar-text);
-  flex: 0 1 33%;
   position: relative;
 }
 
 @media screen and (min-width: 768px) {
   .sidebar {
     position: sticky;
-    top:0;
-    flex-basis: 33%;
+    top: 0;
     height: 100vh;
   }
+}
+
+.parent-menu {
+  height: 100%;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.parent-menu {
+  width: 16rem;
+  left: -16rem;
+}
+
+.parent-menu__toggle {
+  cursor: pointer;
+  height: 2rem;
+  padding: 0.75rem;
+}
+
+.parent-menu__toggle--open {
+  transform: rotate(90deg);
+}
+
+.parent-menu__toggle--close {
+  align-self: flex-end;
+}
+
+.parent-menu ul {
+  list-style: none;
+  padding: 0 var(--gutter-width);
+  margin: 0;
+}
+
+.parent-menu a {
+  color: var(--color--parent-menu-text);
 }
 
 .sidebar__inner {

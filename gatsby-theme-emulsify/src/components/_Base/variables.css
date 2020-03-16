@@ -17,12 +17,6 @@
   --color--body-text: var(--color-var--gray-darkest);
   /* Header */
   --color--header-text: var(--color-var--white);
-  /* Tabs */
-  --color--tabs-default-bg: var(--color-var--gray-dark);
-  --color--tabs-default-text: var(--color-var--white);
-  --color--tabs-hover-bg: var(--color-var--gray-darker);
-  --color--tabs-active-bg: var(--color-var--white);
-  --color--tabs-active-text: var(--color-var--gray-dark);
   /* Sidebar */
   --color--sidebar-bg: var(--color-var--gray);
   --color--sidebar-text: var(--color-var--white);

@@ -42,13 +42,28 @@ export default class Sidebar extends Component {
   render() {
     const { siteTitle, menu, id, collection, designSystems } = this.props;
     return (
-      <div className="sidebar">
+      <div
+        className="sidebar"
+        sx={{
+          backgroundColor: "gray",
+          color: "white",
+          flex: "0 1 33%"
+        }}
+      >
         {designSystems.length ? (
-          <nav className="parent-menu">
+          <nav
+            className="parent-menu"
+            sx={{
+              backgroundColor: "grayDarkest"
+            }}
+          >
             <CloseIcon
               className="parent-menu__toggle parent-menu__toggle--close"
               onClick={this.open}
               aria-label="Toggle Parent Menu"
+              sx={{
+                fill: "white"
+              }}
             />
             <ul>
               {designSystems.map(link => (
@@ -65,6 +80,9 @@ export default class Sidebar extends Component {
               className="parent-menu__toggle parent-menu__toggle--open"
               onClick={this.open}
               aria-label="Toggle Parent Menu"
+              sx={{
+                fill: "white"
+              }}
             />
             <h1 className="sidebar__heading">
               <Link
