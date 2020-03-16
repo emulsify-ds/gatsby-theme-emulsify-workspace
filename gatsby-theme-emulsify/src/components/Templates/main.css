@@ -13,28 +13,8 @@
   flex-direction: column;
 }
 
-@media only screen and (min-width: 768px) {
-  .main-content {
-    flex-basis: 80%;
-  }
-}
-
 .main-content-content {
   flex: 1;
-  padding: 3rem var(--gutter-width);
-}
-
-@media only screen and (min-width: 768px) {
-  .main-content-content {
-    padding: 3rem 4rem;
-  }
-}
-
-.main-title {
-  background: linear-gradient(90deg, var(--dot-bg-color) 20px, transparent 1%) center, linear-gradient(var(--dot-bg-color) 20px, transparent 1%) center, var(--dot-color);
-  background-size: 22px 22px;
-  font-size: 2.666666667rem;
-  margin-bottom: 0;
 }
 
 /* Tabs */

@@ -49,11 +49,21 @@ export default ({
           collection={collection}
           designSystems={designSystems}
         />
-        <Flex className="main-content">
+        <Flex
+          className="main-content"
+          sx={{
+            flexBasis: [null, "80%", null]
+          }}
+        >
           <h1
             className="main-title"
             sx={{
+              background:
+                "linear-gradient(90deg, var(--dot-bg-color) 20px, transparent 1%) center, linear-gradient(var(--dot-bg-color) 20px, transparent 1%) center, var(--dot-color)",
+              backgroundSize: "22px 22px",
               color: "background",
+              fontSize: 9,
+              mb: 0,
               marginTop: 0,
               px: [4, null, 16],
               py: [8, null, 48],
@@ -63,7 +73,13 @@ export default ({
             {pageTitle}
           </h1>
           {tabs.length ? <Tabs tabs={tabs} id={id} /> : null}
-          <div className="main-content-content">
+          <div
+            className="main-content-content"
+            sx={{
+              px: [4, null, 16],
+              py: 12
+            }}
+          >
             <MDXRenderer>{body}</MDXRenderer>
           </div>
         </Flex>

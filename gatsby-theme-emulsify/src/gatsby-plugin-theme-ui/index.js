@@ -42,7 +42,9 @@ export default {
     "1.5rem",
     "1.75rem",
     "2rem",
-    "2.25rem"
+    "2.25rem",
+    "2.5rem",
+    "2.75rem"
   ],
   fontWeights: {
     body: 400,
