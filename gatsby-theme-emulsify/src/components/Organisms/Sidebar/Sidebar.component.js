@@ -1,5 +1,8 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
+
 import "./sidebar.css";
 import "./sidebar-design.css";
 
@@ -64,7 +67,14 @@ export default class Sidebar extends Component {
               aria-label="Toggle Parent Menu"
             />
             <h1 className="sidebar__heading">
-              <Link to="/">{siteTitle}</Link>
+              <Link
+                to="/"
+                sx={{
+                  color: "background"
+                }}
+              >
+                {siteTitle}
+              </Link>
             </h1>
             <MenuIcon
               className="sidebar__toggle"

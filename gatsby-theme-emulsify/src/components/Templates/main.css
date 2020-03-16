@@ -1,5 +1,4 @@
 .main {
-  display: flex;
   flex-flow: column nowrap;
   height: 100%;
 }
@@ -11,7 +10,6 @@
 }
 
 .main-content {
-  display: flex;
   flex-direction: column;
 }
 
@@ -35,16 +33,8 @@
 .main-title {
   background: linear-gradient(90deg, var(--dot-bg-color) 20px, transparent 1%) center, linear-gradient(var(--dot-bg-color) 20px, transparent 1%) center, var(--dot-color);
   background-size: 22px 22px;
-  color: var(--color--header-text);
   font-size: 2.666666667rem;
   margin-bottom: 0;
-  padding: 2rem var(--gutter-width);
-}
-
-@media screen and (min-width: 768px) {
-  .main-title {
-    padding: 12rem 4rem 2rem;
-  }
 }
 
 /* Tabs */

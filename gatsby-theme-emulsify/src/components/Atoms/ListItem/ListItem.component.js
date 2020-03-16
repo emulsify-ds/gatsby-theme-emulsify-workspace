@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { Link } from "gatsby";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 
 /**
  * Component that renders a list item.
@@ -40,7 +42,13 @@ export default class ListItem extends Component {
           active === true ? " menu-item--child--active" : ""
         }`}
       >
-        <Link className="menu-link" to={itemLink}>
+        <Link
+          className="menu-link"
+          to={itemLink}
+          sx={{
+            color: "background"
+          }}
+        >
           {listItemContent.title}
         </Link>
         {children}

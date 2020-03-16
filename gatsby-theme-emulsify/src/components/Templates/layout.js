@@ -1,6 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
+
 import Site from "./Site";
 import SEO from "./seo";
 import "./layout.css";
@@ -27,7 +30,13 @@ const Heading = level => ({ props, children }) => {
       ? children.replace(/\s+/g, "-").toLowerCase()
       : "";
   return (
-    <a name={name} href={`#${name}`}>
+    <a
+      name={name}
+      href={`#${name}`}
+      sx={{
+        color: "text"
+      }}
+    >
       <H {...props}>{children}</H>
     </a>
   );

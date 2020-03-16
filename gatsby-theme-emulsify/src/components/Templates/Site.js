@@ -1,5 +1,7 @@
 import React from "react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+/** @jsx jsx */
+import { Flex, jsx } from "theme-ui";
 
 import Sidebar from "../Organisms/Sidebar/Sidebar.component";
 import Tabs from "../Organisms/Tabs/Tabs.component";
@@ -37,7 +39,7 @@ export default ({
     });
   return (
     <div className={isMenuOpen ? "wrapper-open wrapper" : "wrapper"}>
-      <div className="main">
+      <Flex className="main">
         <Sidebar
           id={id}
           pages={docPages}
@@ -47,14 +49,25 @@ export default ({
           collection={collection}
           designSystems={designSystems}
         />
-        <div className="main-content">
-          <h1 className="main-title">{pageTitle}</h1>
+        <Flex className="main-content">
+          <h1
+            className="main-title"
+            sx={{
+              color: "background",
+              marginTop: 0,
+              px: [4, null, 16],
+              py: [8, null, 48],
+              pb: [8, null, 8]
+            }}
+          >
+            {pageTitle}
+          </h1>
           {tabs.length ? <Tabs tabs={tabs} id={id} /> : null}
           <div className="main-content-content">
             <MDXRenderer>{body}</MDXRenderer>
           </div>
-        </div>
-      </div>
+        </Flex>
+      </Flex>
     </div>
   );
 };

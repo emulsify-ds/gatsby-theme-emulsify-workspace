@@ -1,10 +1,6 @@
 :root {
   /* Spacing */
   --gutter-width: 1rem;
-  /* Fonts */
-  --font-family-body: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, sans-serif;
-  --font-family-header: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  --font-family-code: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono", "Liberation Mono", Menlo, Courier, monospace;
   /* Borders */
   --border-radius: 3px;
   /* Color Variables */
@@ -15,13 +11,11 @@
   --color-var--gray-dark: #6E7479;
   --color-var--gray-darker: #505558;
   --color-var--gray-darkest: #313436;
-  --color-var--black: #313436;
   --color-var--white: #fff;
   /* Color Usage */
   /* Defaults */
   --color--body-text: var(--color-var--gray-darkest);
   /* Header */
-  --color--header-bg: var(--color-var--black);
   --color--header-text: var(--color-var--white);
   /* Tabs */
   --color--tabs-default-bg: var(--color-var--gray-dark);
