@@ -14,7 +14,7 @@ module.exports = {
         // ],
         // Site Metadata for style guide
         siteMetadata: {
-          title: 'Drupal Starter',
+          title: 'Emulsify',
           description: '',
           author: '',
         },
