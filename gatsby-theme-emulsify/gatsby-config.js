@@ -56,6 +56,7 @@ module.exports = ({
       }
     },
     `gatsby-transformer-remark`,
-    `gatsby-plugin-sharp`
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-theme-ui`
   ]
 });

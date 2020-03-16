@@ -10,6 +10,7 @@
     "build-storybook": "build-storybook -o static/storybook"
   },
   "dependencies": {
+    "cross-env": "5.0.5",
     "gatsby": "^2.19.7",
     "gatsby-theme-emulsify": "^1.0.0-alpha.7",
     "react": "^16.12.0",
