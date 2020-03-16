@@ -62,29 +62,60 @@ export default class Sidebar extends Component {
               onClick={this.open}
               aria-label="Toggle Parent Menu"
               sx={{
-                fill: "white"
+                fill: "white",
+                padding: 1
               }}
             />
-            <ul>
+            <ul
+              sx={{
+                px: 4
+              }}
+            >
               {designSystems.map(link => (
                 <li key={link.name}>
-                  <a href={link.link}>{link.name}</a>
+                  <a
+                    href={link.link}
+                    sx={{
+                      color: "white"
+                    }}
+                  >
+                    {link.name}
+                  </a>
                 </li>
               ))}
             </ul>
           </nav>
         ) : null}
-        <div className="sidebar__inner">
-          <div className="sidebar__header">
+        <div
+          className="sidebar__inner"
+          sx={{
+            px: 4
+          }}
+        >
+          <div
+            className="sidebar__header"
+            sx={{
+              borderBottom: "1px solid rgba(255, 255, 255, 0.4)",
+              pb: 4,
+              marginBottom: [null, null, "3rem"]
+            }}
+          >
             <DownIcon
               className="parent-menu__toggle parent-menu__toggle--open"
               onClick={this.open}
               aria-label="Toggle Parent Menu"
               sx={{
-                fill: "white"
+                fill: "white",
+                padding: 1
               }}
             />
-            <h1 className="sidebar__heading">
+            <h1
+              className="sidebar__heading"
+              sx={{
+                fontSize: 7,
+                margin: ["0 auto 0 0", null, " 1rem auto 1rem 0"]
+              }}
+            >
               <Link
                 to="/"
                 sx={{
@@ -98,6 +129,11 @@ export default class Sidebar extends Component {
               className="sidebar__toggle"
               onClick={this.toggleSidebar}
               aria-label="Toggle Sidebar Menu"
+              sx={{
+                fill: "white",
+                height: "2rem",
+                paddingLeft: 4
+              }}
             />
           </div>
           <nav
@@ -116,12 +152,22 @@ export default class Sidebar extends Component {
               />
             </ul>
           </nav>
-          <footer className="sidebar__footer">
+          <footer
+            className="sidebar__footer"
+            sx={{
+              fontSize: "0.65rem",
+              py: 3,
+              borderTop: [null, null, "1px solid rgba(255, 255, 255, 0.4)"]
+            }}
+          >
             Design System Powered by{" "}
             <a
               href="http://emulsify.info"
               target="_blank"
               rel="noopener noreferrer"
+              sx={{
+                color: "white"
+              }}
             >
               <strong>Emulsify</strong>
             </a>
