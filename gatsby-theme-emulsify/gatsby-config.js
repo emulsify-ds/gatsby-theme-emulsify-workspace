@@ -3,6 +3,7 @@ const path = require("path");
 module.exports = ({
   componentLibPath = "components",
   docPagesPath = "styleguide",
+  UILibPath = "/storybook/iframe.html",
   basePath = "/",
   designSystems = [
     {
@@ -23,7 +24,8 @@ module.exports = ({
   pathPrefix: "/gatsby-theme-emulsify",
   siteMetadata: {
     ...siteMetadata,
-    designSystems
+    designSystems,
+    UILibPath
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
