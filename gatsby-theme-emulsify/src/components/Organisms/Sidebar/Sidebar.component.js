@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import { Component } from "react";
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 
@@ -143,14 +143,12 @@ export default class Sidebar extends Component {
                 : "sidebar__nav"
             }
           >
-            <ul className="main-menu">
-              <MainMenu
-                menu={menu}
-                id={id}
-                filter="pages"
-                collection={collection}
-              />
-            </ul>
+            <MainMenu
+              menu={menu}
+              id={id}
+              filter="pages"
+              collection={collection}
+            />
           </nav>
           <footer
             className="sidebar__footer"

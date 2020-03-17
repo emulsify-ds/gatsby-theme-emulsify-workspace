@@ -26,6 +26,8 @@ export default {
     background: "#fff",
     white: "#fff",
     gray: "#889096",
+    grayLight: "#C1C9CF",
+    grayLighter: "#E2EBF2",
     grayDark: "#6E7479",
     grayDarker: "#505558",
     grayDarkest: "#313436",
@@ -59,7 +61,7 @@ export default {
     body: 1.5,
     heading: 1.7
   },
-  radii: ["3px"],
+  radii: ["2px", "3px"],
   styles: {
     root: {
       fontFamily: "body",
