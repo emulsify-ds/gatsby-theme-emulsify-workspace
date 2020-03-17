@@ -29,8 +29,6 @@ export default {
     accent: "#6E7479",
     highlight: "#E2EBF2",
     muted: "#889096",
-    grayLight: "#C1C9CF",
-    grayDarker: "#505558",
     modes: {
       dark: {
         text: "#fff",
@@ -39,9 +37,7 @@ export default {
         secondary: "#fff",
         accent: "#889096",
         highlight: "#6E7479",
-        muted: "#313436",
-        grayLight: "#505558",
-        grayDarker: "#C1C9CF"
+        muted: "#313436"
       }
     }
   },

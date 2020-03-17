@@ -34,7 +34,7 @@ const Button = props => {
         textTransform: "uppercase",
         transition: "all 0.1s ease-in-out",
         "&:hover": {
-          backgroundColor: "grayLight"
+          backgroundColor: "secondary"
         }
       }}
     >
