@@ -1,7 +1,7 @@
 import React from "react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 /** @jsx jsx */
-import { Flex, jsx } from "theme-ui";
+import { Flex, jsx, useColorMode } from "theme-ui";
 
 import Sidebar from "../Organisms/Sidebar/Sidebar.component";
 import Tabs from "../Organisms/Tabs/Tabs.component";
@@ -21,6 +21,7 @@ export default ({
   collection
 }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [colorMode, setColorMode] = useColorMode();
 
   const toggleOpen = () => {
     setIsMenuOpen(prevState => !prevState);
@@ -54,6 +55,24 @@ export default ({
             flexBasis: [null, "80%", null]
           }}
         >
+          <button
+            onClick={e => {
+              setColorMode(colorMode === "default" ? "dark" : "default");
+            }}
+            sx={{
+              cursor: "pointer",
+              display: "block",
+              position: "fixed",
+              top: 4,
+              right: 4,
+              border: "none",
+              borderRadius: "2px",
+              padding: 2,
+              fontSize: 0
+            }}
+          >
+            {colorMode === "default" ? "Dark" : "Light"}
+          </button>
           <h1
             className="main-title"
             sx={{

@@ -31,7 +31,21 @@ export default {
     grayDark: "#6E7479",
     grayDarker: "#505558",
     grayDarkest: "#313436",
-    black: "#000"
+    black: "#000",
+    modes: {
+      dark: {
+        text: "#fff",
+        background: "#313436",
+        white: "#000",
+        gray: "#313436",
+        grayLight: "#505558",
+        grayLighter: "#6E7479",
+        grayDark: "#E2EBF2",
+        grayDarker: "#C1C9CF",
+        grayDarkest: "#889096",
+        black: "#fff"
+      }
+    }
   },
   fonts: {
     body:

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Component } from "react";
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, useColorMode } from "theme-ui";
 
 import "./sidebar.css";
 import "./sidebar-design.css";
@@ -15,10 +15,17 @@ const Link = process.env.STORYBOOK_ENV
   ? ({ children }) => children
   : require("gatsby").Link;
 
+function withColorValue(Component) {
+  return function WrappedComponent(props) {
+    const [colorMode] = useColorMode();
+    return <Component {...props} colorMode={colorMode} />;
+  };
+}
+
 /**
  * Component that renders the sidebar.
  */
-export default class Sidebar extends Component {
+class Sidebar extends Component {
   static propTypes = {
     siteTitle: PropTypes.string
   };
@@ -40,22 +47,43 @@ export default class Sidebar extends Component {
   };
 
   render() {
-    const { siteTitle, menu, id, collection, designSystems } = this.props;
+    const {
+      siteTitle,
+      menu,
+      id,
+      collection,
+      designSystems,
+      colorMode
+    } = this.props;
     return (
       <div
         className="sidebar"
-        sx={{
-          backgroundColor: "gray",
-          color: "white",
-          flex: "0 1 33%"
-        }}
+        sx={
+          colorMode === "default"
+            ? {
+                backgroundColor: "gray",
+                color: "white",
+                flex: "0 1 33%"
+              }
+            : {
+                backgroundColor: "black",
+                color: "white",
+                flex: "0 1 33%"
+              }
+        }
       >
         {designSystems.length ? (
           <nav
             className="parent-menu"
-            sx={{
-              backgroundColor: "grayDarkest"
-            }}
+            sx={
+              colorMode === "default"
+                ? {
+                    backgroundColor: "grayDarkest"
+                  }
+                : {
+                    backgroundColor: "grayDark"
+                  }
+            }
           >
             <CloseIcon
               className="parent-menu__toggle parent-menu__toggle--close"
@@ -113,7 +141,7 @@ export default class Sidebar extends Component {
               className="sidebar__heading"
               sx={{
                 fontSize: 7,
-                margin: ["0 auto 0 0", null, " 1rem auto 1rem 0"]
+                margin: ["0 auto 0 0", null, "1rem auto 1rem 0"]
               }}
             >
               <Link
@@ -175,3 +203,5 @@ export default class Sidebar extends Component {
     );
   }
 }
+
+export default Sidebar = withColorValue(Sidebar);
