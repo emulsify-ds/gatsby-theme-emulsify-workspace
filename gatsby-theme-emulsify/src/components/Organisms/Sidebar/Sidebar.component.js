@@ -4,7 +4,6 @@ import { Component } from "react";
 import { jsx, useColorMode } from "theme-ui";
 
 import "./sidebar.css";
-import "./sidebar-design.css";
 
 import CloseIcon from "../../../../assets/close.svg";
 import DownIcon from "../../../../assets/down.svg";
