@@ -57,8 +57,8 @@ export default ({
           <h1
             className="main-title"
             sx={{
-              background:
-                "linear-gradient(90deg, var(--dot-bg-color) 20px, transparent 1%) center, linear-gradient(var(--dot-bg-color) 20px, transparent 1%) center, var(--dot-color)",
+              background: theme =>
+                `linear-gradient(90deg, ${theme.colors.grayDarkest} 20px, transparent 1%) center, linear-gradient(${theme.colors.grayDarkest} 20px, transparent 1%) center, ${theme.colors.grayDarker}`,
               backgroundSize: "22px 22px",
               color: "background",
               fontSize: 9,

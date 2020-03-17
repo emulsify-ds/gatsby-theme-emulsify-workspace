@@ -5,7 +5,6 @@
 }
 body {
   margin: 0;
-  color: var(--color--body-text);
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -56,7 +55,7 @@ dfn {
   font-style: italic;
 }
 mark {
-  background-color: var(--color-var--yellow);
+  background-color: #ff0;
 }
 small {
   font-size: 80%;
