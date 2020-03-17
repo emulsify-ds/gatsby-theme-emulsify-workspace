@@ -110,7 +110,7 @@ export default class MainMenu extends Component {
                   className="menu-icon menu-icon--down"
                   aria-label="Toggle Open"
                   sx={{
-                    fill: "grayLighter",
+                    fill: "highlight",
                     height: "20px",
                     top: "7px",
                     width: "20px"
@@ -120,7 +120,7 @@ export default class MainMenu extends Component {
                   className="menu-icon menu-icon--up"
                   aria-label="Toggle Closed"
                   sx={{
-                    fill: "grayLighter",
+                    fill: "highlight",
                     height: "20px",
                     top: "7px",
                     width: "20px"

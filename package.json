@@ -5,11 +5,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "yarn workspace example build",
-    "develop": "yarn workspace example develop"
+    "example-build": "yarn workspace example build",
+    "example-develop": "yarn workspace example develop",
+    "western-build": "yarn workspace western-up build",
+    "western-develop": "yarn workspace western-up develop"
   },
   "workspaces": [
     "gatsby-theme-emulsify",
-    "example"
+    "example",
+    "western-up"
   ]
 }

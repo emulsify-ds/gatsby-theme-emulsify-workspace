@@ -18,10 +18,10 @@ const Button = props => {
       className="btn"
       onClick={onClick}
       sx={{
-        backgroundColor: "grayDarkest",
+        backgroundColor: "primary",
         border: "none",
         borderRadius: "0.15rem",
-        color: "white",
+        color: "background",
         cursor: "pointer",
         display: "inline-block",
         fontSize: 2,

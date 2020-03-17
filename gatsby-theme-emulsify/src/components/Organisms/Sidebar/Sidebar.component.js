@@ -61,13 +61,13 @@ class Sidebar extends Component {
         sx={
           colorMode === "default"
             ? {
-                backgroundColor: "gray",
-                color: "white",
+                backgroundColor: "muted",
+                color: "background",
                 flex: "0 1 33%"
               }
             : {
-                backgroundColor: "black",
-                color: "white",
+                backgroundColor: "secondary",
+                color: "background",
                 flex: "0 1 33%"
               }
         }
@@ -78,10 +78,10 @@ class Sidebar extends Component {
             sx={
               colorMode === "default"
                 ? {
-                    backgroundColor: "grayDarkest"
+                    backgroundColor: "primary"
                   }
                 : {
-                    backgroundColor: "grayDark"
+                    backgroundColor: "accent"
                   }
             }
           >
@@ -90,7 +90,7 @@ class Sidebar extends Component {
               onClick={this.open}
               aria-label="Toggle Parent Menu"
               sx={{
-                fill: "white",
+                fill: "background",
                 padding: 1
               }}
             />
@@ -104,7 +104,7 @@ class Sidebar extends Component {
                   <a
                     href={link.link}
                     sx={{
-                      color: "white"
+                      color: "background"
                     }}
                   >
                     {link.name}
@@ -133,7 +133,7 @@ class Sidebar extends Component {
               onClick={this.open}
               aria-label="Toggle Parent Menu"
               sx={{
-                fill: "white",
+                fill: "background",
                 padding: 1
               }}
             />
@@ -158,7 +158,7 @@ class Sidebar extends Component {
               onClick={this.toggleSidebar}
               aria-label="Toggle Sidebar Menu"
               sx={{
-                fill: "white",
+                fill: "background",
                 height: "2rem",
                 paddingLeft: 4
               }}
@@ -192,7 +192,7 @@ class Sidebar extends Component {
               target="_blank"
               rel="noopener noreferrer"
               sx={{
-                color: "white"
+                color: "background"
               }}
             >
               <strong>Emulsify</strong>

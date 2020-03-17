@@ -24,26 +24,24 @@ export default {
   colors: {
     text: "#313436",
     background: "#fff",
-    white: "#fff",
-    gray: "#889096",
+    primary: "#313436",
+    secondary: "#000",
+    accent: "#6E7479",
+    highlight: "#E2EBF2",
+    muted: "#889096",
     grayLight: "#C1C9CF",
-    grayLighter: "#E2EBF2",
-    grayDark: "#6E7479",
     grayDarker: "#505558",
-    grayDarkest: "#313436",
-    black: "#000",
     modes: {
       dark: {
         text: "#fff",
         background: "#313436",
-        white: "#000",
-        gray: "#313436",
+        primary: "#889096",
+        secondary: "#fff",
+        accent: "#889096",
+        highlight: "#6E7479",
+        muted: "#313436",
         grayLight: "#505558",
-        grayLighter: "#6E7479",
-        grayDark: "#E2EBF2",
-        grayDarker: "#C1C9CF",
-        grayDarkest: "#889096",
-        black: "#fff"
+        grayDarker: "#C1C9CF"
       }
     }
   },
@@ -108,9 +106,9 @@ export default {
       fontSize: 3
     },
     a: {
-      color: "text",
+      color: "primary",
       ":hover, :active": {
-        color: "black"
+        color: "secondary"
       }
     }
   }

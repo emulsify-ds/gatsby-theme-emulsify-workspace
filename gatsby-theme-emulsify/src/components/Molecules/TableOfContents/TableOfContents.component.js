@@ -49,7 +49,7 @@ export default ({ items }) => (
   <section
     className="toc"
     sx={{
-      backgroundColor: "grayLighter",
+      backgroundColor: "highlight",
       borderRadius: 1,
       padding: 4,
       mb: 8

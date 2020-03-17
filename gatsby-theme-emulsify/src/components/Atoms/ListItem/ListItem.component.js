@@ -46,7 +46,7 @@ export default class ListItem extends Component {
           mb: 0,
           pb: 0,
           "&.menu-item--child--active::before": {
-            border: theme => `5px solid ${theme.colors.grayLighter}`,
+            border: theme => `5px solid ${theme.colors.highlight}`,
             borderBottomColor: "transparent",
             borderRightColor: "transparent",
             borderTopColor: "transparent",

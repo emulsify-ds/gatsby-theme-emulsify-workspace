@@ -8,7 +8,7 @@ export default ({ tabs, id }) => (
   <nav
     className="tabs"
     sx={{
-      backgroundColor: "grayDark",
+      backgroundColor: "accent",
       px: [4, null, 16],
       py: 4,
       pb: 0
@@ -21,7 +21,7 @@ export default ({ tabs, id }) => (
             to={tab.node.fields.slug}
             className={tab.node.id === id ? "active" : ""}
             sx={{
-              color: "white",
+              color: "background",
               borderTopLeftRadius: 0,
               borderTopRightRadius: 0,
               fontWeight: "heading",
@@ -32,8 +32,8 @@ export default ({ tabs, id }) => (
                 backgroundColor: "grayDarker"
               },
               "&.active": {
-                backgroundColor: "white",
-                color: "grayDark"
+                backgroundColor: "background",
+                color: "accent"
               }
             }}
           >
