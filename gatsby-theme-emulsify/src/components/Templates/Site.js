@@ -68,7 +68,8 @@ export default ({
               border: "none",
               borderRadius: "2px",
               padding: 2,
-              fontSize: 0
+              fontSize: 0,
+              zIndex: 10
             }}
           >
             {colorMode === "default" ? "Dark" : "Light"}
