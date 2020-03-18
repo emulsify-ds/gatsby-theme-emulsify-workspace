@@ -20,6 +20,7 @@ export default ({ children, className }) => {
           className={className}
           style={{ ...style }}
           sx={{
+            mb: 8,
             mt: 0,
             py: 8,
             px: 6
