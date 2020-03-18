@@ -25,6 +25,7 @@ const StorybookComponent = ({ id, height, data }) => {
             display: "block",
             margin: 0,
             minHeight: "150px",
+            padding: 2,
             width: "100%"
           }}
           title={`storybook-component-${id}`}

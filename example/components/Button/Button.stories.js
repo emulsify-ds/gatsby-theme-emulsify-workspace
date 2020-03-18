@@ -1,12 +1,13 @@
 import React from 'react';
+
 import Button from './Button.component';
 
-export const Text = () => <Button>Hello Button</Button>;
+/**
+ * Storybook Definition.
+ */
+export default {
+  component: Button,
+  title: 'Button',
+};
 
-export const Emoji = () => (
-  <Button>
-    <span role="img" aria-label="so cool">
-      😀 😎 👍 💯
-    </span>
-  </Button>
-);
+export const example = () => <Button>Click Here</Button>;
