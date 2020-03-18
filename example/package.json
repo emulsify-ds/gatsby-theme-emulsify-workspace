@@ -6,6 +6,7 @@
   "scripts": {
     "develop": "npm run build-storybook && gatsby develop",
     "build": "npm run build-storybook && gatsby build",
+    "deploy-styleguide": "npm run build-storybook && gatsby build --prefix-paths && gh-pages -d public",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o static/storybook"
   },
