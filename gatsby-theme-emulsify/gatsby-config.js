@@ -22,7 +22,7 @@ module.exports = ({
     description: "A Design System Driven by Gatsby"
   }
 }) => ({
-  pathPrefix: "/gatsby-theme-emulsify",
+  pathPrefix: "/gatsby-theme-emulsify-workspace",
   siteMetadata: {
     ...siteMetadata,
     designSystems,
