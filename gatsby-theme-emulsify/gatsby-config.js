@@ -1,4 +1,5 @@
 const path = require("path");
+const _ = require("lodash");
 
 module.exports = ({
   componentLibPath = "components",
@@ -57,7 +58,21 @@ module.exports = ({
         extensions: [`.mdx`, `.md`]
       }
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              wrapperStyle: fluidResult =>
+                `flex:${_.round(fluidResult.aspectRatio, 2)};`
+            }
+          }
+        ]
+      }
+    },
     `gatsby-plugin-sharp`,
     `gatsby-plugin-theme-ui`
   ]
