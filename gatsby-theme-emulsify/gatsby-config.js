@@ -44,6 +44,12 @@ module.exports = ({
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src`
+      }
+    },
+    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
@@ -59,7 +65,7 @@ module.exports = ({
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 800,
+              maxWidth: 1200,
               wrapperStyle: fluidResult =>
                 `flex:${_.round(fluidResult.aspectRatio, 2)};`
             }

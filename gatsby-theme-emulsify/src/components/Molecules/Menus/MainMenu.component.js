@@ -35,14 +35,16 @@ export default class MainMenu extends Component {
       if (item.sourceInstanceName === filter) {
         // Not the following pages.
         if (item.name !== "index" || item.name !== "404") {
-          const itemDir = item.relativeDirectory;
-          // Only if it has a parent directory.
-          if (itemDir !== "") {
-            directoryTree.children.push({
-              parent: itemDir,
-              item: item,
-              active: item.childMdx.id === id ? true : false
-            });
+          if (item.childMdx) {
+            const itemDir = item.relativeDirectory;
+            // Only if it has a parent directory.
+            if (itemDir !== "") {
+              directoryTree.children.push({
+                parent: itemDir,
+                item: item,
+                active: item.childMdx.id === id ? true : false
+              });
+            }
           }
         }
       }
