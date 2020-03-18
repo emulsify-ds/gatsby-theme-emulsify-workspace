@@ -8,11 +8,17 @@ publishToStyleGuide: true
 import CodeTest from "./Code.component.js";
 import Button from "./Button.component"
 
+const buttonCode = `
+<button></button>
+`;
+
 # This is a Button
 
 Below you will see the default implementation of the button component.
 
 <StorybookComponent id="button--emoji" height="75px" />
-<CodeTest><Button /></CodeTest>
+
+<CodeBlock exampleCode={buttonCode}>
+
 
 And below that is whatever content you like.

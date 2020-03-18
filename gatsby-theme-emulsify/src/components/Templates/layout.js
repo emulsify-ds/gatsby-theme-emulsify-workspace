@@ -11,6 +11,7 @@ import "./layout.css";
 // Components for MDX
 import TableOfContents from "../Molecules/TableOfContents/TableOfContents.component";
 import StorybookComponent from "../Atoms/StorybookComponent/StorybookComponent.component";
+import CodeBlock from "../Atoms/CodeBlock/CodeBlock.component";
 import DarkWrapper from "../Atoms/DarkWrapper/DarkWrapper.component";
 
 export default props => {
@@ -26,6 +27,7 @@ export default props => {
       <TableOfContents items={post.tableOfContents.items} />
     ),
     StorybookComponent,
+    CodeBlock,
     DarkWrapper
   });
   const site = props.data.site;

@@ -106,6 +106,11 @@ export default {
       ":hover, :active": {
         color: "secondary"
       }
+    },
+    pre: {
+      backgroundColor: "text",
+      padding: 4,
+      my: 2
     }
   }
 };

@@ -36,7 +36,6 @@
     "gatsby-plugin-theme-ui": "^0.3.0",
     "gatsby-remark-images": "^3.1.50",
     "gatsby-source-filesystem": "^2.1.48",
-    "gatsby-transformer-remark": "^2.6.52",
     "gh-pages": "^2.2.0",
     "prism-react-renderer": "^1.0.2",
     "prismjs": "^1.19.0",
