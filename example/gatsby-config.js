@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/gatsby-theme-emulsify-workspace",
   plugins: [
     {
       resolve: 'gatsby-theme-emulsify',

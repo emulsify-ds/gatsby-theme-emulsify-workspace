@@ -1,6 +1,6 @@
 import Highlight, { defaultProps } from "prism-react-renderer";
-import themeDark from "prism-react-renderer/themes/duoToneDark";
-import themeLight from "prism-react-renderer/themes/duoToneLight";
+import themeDark from "prism-react-renderer/themes/duotoneDark";
+import themeLight from "prism-react-renderer/themes/duotoneLight";
 /** @jsx jsx */
 import { jsx, useColorMode } from "theme-ui";
 
