@@ -5,12 +5,6 @@ tab: "Code"
 tabOrder: 1
 publishToStyleGuide: true
 ---
-import CodeTest from "./Code.component.js";
-import Button from "./Button.component"
-
-const buttonCode = `
-<button></button>
-`;
 
 # This is a Button
 
@@ -18,7 +12,7 @@ Below you will see the default implementation of the button component.
 
 <StorybookComponent id="button--emoji" height="75px" />
 
-<CodeBlock exampleCode={buttonCode}>
+```html
+<button>😀 😎 👍 💯</button>
+```
 
-
-And below that is whatever content you like.

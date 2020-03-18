@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
-import React from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 
-const StorybookComponent = ({ id, width, height, data }) => {
+const StorybookComponent = ({ id, height, data }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -17,9 +18,14 @@ const StorybookComponent = ({ id, width, height, data }) => {
       render={data => (
         <iframe
           style={{
-            border: "none",
-            width,
             height
+          }}
+          sx={{
+            border: theme => `1px solid ${theme.colors.highlight}`,
+            display: "block",
+            margin: 0,
+            minHeight: "150px",
+            width: "100%"
           }}
           title={`storybook-component-${id}`}
           src={`${data.site.siteMetadata.UILibPath}?id=${id}`}

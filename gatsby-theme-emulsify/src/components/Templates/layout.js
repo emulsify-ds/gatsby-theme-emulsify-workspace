@@ -26,8 +26,9 @@ export default props => {
     TableOfContents: () => (
       <TableOfContents items={post.tableOfContents.items} />
     ),
+    pre: props => <div {...props} />,
     StorybookComponent,
-    CodeBlock,
+    code: CodeBlock,
     DarkWrapper
   });
   const site = props.data.site;

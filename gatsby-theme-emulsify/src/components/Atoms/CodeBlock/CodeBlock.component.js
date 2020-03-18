@@ -1,30 +1,39 @@
-import PropTypes from "prop-types";
-import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/nightOwl";
+import themeDark from "prism-react-renderer/themes/duoToneDark";
+import themeLight from "prism-react-renderer/themes/duoToneLight";
+/** @jsx jsx */
+import { jsx, useColorMode } from "theme-ui";
 
-const CodeBlock = ({ exampleCode }) => (
-  <Highlight {...defaultProps} theme={theme} code={exampleCode} language="jsx">
-    {({ className, style, tokens, getLineProps, getTokenProps }) => (
-      <pre className={className} style={style}>
-        {tokens.map((line, i) => (
-          <div {...getLineProps({ line, key: i })}>
-            {line.map((token, key) => (
-              <span {...getTokenProps({ token, key })} />
-            ))}
-          </div>
-        ))}
-      </pre>
-    )}
-  </Highlight>
-);
+export default ({ children, className }) => {
+  const language = className.replace(/language-/, "");
+  const [colorMode] = useColorMode();
 
-CodeBlock.propTypes = {
-  exampleCode: PropTypes.node
+  return (
+    <Highlight
+      {...defaultProps}
+      theme={colorMode === "default" ? themeDark : themeLight}
+      code={children.trim()}
+      language={language}
+    >
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <pre
+          className={className}
+          style={{ ...style }}
+          sx={{
+            mt: 0,
+            py: 8,
+            px: 6
+          }}
+        >
+          {tokens.map((line, i) => (
+            <div key={i} {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                <span key={key} {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </pre>
+      )}
+    </Highlight>
+  );
 };
-
-CodeBlock.defaultProps = {
-  exampleCode: ""
-};
-
-export default CodeBlock;
