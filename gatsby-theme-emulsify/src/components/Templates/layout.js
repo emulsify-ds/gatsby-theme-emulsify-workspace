@@ -13,6 +13,7 @@ import TableOfContents from "../Molecules/TableOfContents/TableOfContents.compon
 import StorybookComponent from "../Atoms/StorybookComponent/StorybookComponent.component";
 import CodeBlock from "../Atoms/CodeBlock/CodeBlock.component";
 import DarkWrapper from "../Atoms/DarkWrapper/DarkWrapper.component";
+import TabLinks from "../Atoms/TabLinks/TabLinks.component";
 
 export default props => {
   const { pageContext } = props;
@@ -29,7 +30,8 @@ export default props => {
     pre: props => <div {...props} />,
     StorybookComponent,
     code: CodeBlock,
-    DarkWrapper
+    DarkWrapper,
+    TabLinks
   });
   const site = props.data.site;
   const docPages = props.data.allMdx.edges;
