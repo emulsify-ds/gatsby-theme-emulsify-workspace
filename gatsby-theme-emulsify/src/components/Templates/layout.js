@@ -10,6 +10,7 @@ import TableOfContents from "../Molecules/TableOfContents/TableOfContents.compon
 import StorybookComponent from "../Atoms/StorybookComponent/StorybookComponent.component";
 import CodeBlock from "../Atoms/CodeBlock/CodeBlock.component";
 import Code from "../Atoms/Code/Code.component";
+import Tabs from "../Atoms/Tabs/Tabs.component";
 
 const HEADINGS = [
   ({ children, props }) => <h1 {...props}>{children}</h1>,
@@ -53,7 +54,8 @@ export default props => {
     ),
     StorybookComponent,
     CodeBlock,
-    Code
+    Code,
+    Tabs
   });
   const site = props.data.site;
   const docPages = props.data.allMdx.edges;

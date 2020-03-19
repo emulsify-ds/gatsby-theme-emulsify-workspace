@@ -1,0 +1,22 @@
+nav {
+  border-bottom: 2px solid #555;
+}
+
+ol {
+  color: rgb(220, 220, 220);
+  background-color: rgb(30, 30, 30);
+  margin: 0;
+  list-style: none;
+  font-size: 0.8em;
+}
+
+nav ol li {
+  margin: 0;
+  padding: 0.8em;
+  padding-left: 0.8em;
+  display: inline-block;
+}
+
+nav ol li.default {
+  background-color: #555;
+}
