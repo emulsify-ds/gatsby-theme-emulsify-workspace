@@ -21,11 +21,11 @@ To install just the Gatsby theme in your project, run:
 
 ### Documenting Pages
 
-Writing MDX (and Markdown) is supported out of the box. As you can see in the example project, if you create a `styleguide` directory in the root of your starter (this path is configurable in your `gatsby-config.js` file) and start adding directories and pages, they will automatically populate to the style guide. Note: the `Components` directory is treated uniquely because it is expected that your project components will live separately - read on for more info about documenting components:
+Writing MDX (and Markdown) is supported out of the box. As you can see in the example project, if you create a `styleguide` directory in the root of your starter (this path is configurable in your `gatsby-config.js` file) and start adding directories and pages, they will automatically populate to the style guide. Note: the `Components` directory will be treated uniquely because it is expected that your project components live separately - read on for more info about documenting components:
 
 ### Documenting Components
 
-By default, this project will look for component documentation in your `components` directory, but that path is also configurable via `gatsby-config.js`. Create an MDX (or Markdown) file alongside any component in that directory to document it and the Gatsby theme will automatically consume it.
+By default, this project will look for component documentation in your `components` directory, but that path is also configurable via `gatsby-config.js`. Create an MDX (or Markdown) file alongside any component in that directory to document it and the Gatsby theme will automatically consume them.
 
 #### Displaying Components - Storybook Installation
 
