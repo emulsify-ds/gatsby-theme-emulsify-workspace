@@ -15,7 +15,7 @@ module.exports = {
         // ],
         // Site Metadata for style guide
         siteMetadata: {
-          title: 'Emulsify',
+          title: 'Example',
           description: '',
           author: '',
         },
