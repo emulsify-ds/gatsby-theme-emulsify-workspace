@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/gatsby-theme-emulsify-workspace",
   plugins: [
     {
       resolve: 'gatsby-theme-emulsify',
@@ -14,7 +15,7 @@ module.exports = {
         // ],
         // Site Metadata for style guide
         siteMetadata: {
-          title: 'Drupal Starter',
+          title: 'Example',
           description: '',
           author: '',
         },

@@ -1,21 +1,31 @@
-/**
- * @file Code.component.js
- * Exports a CodeSnippet component.
- */
-
-import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
-import reactElementToJSXString from "react-element-to-jsx-string";
+import themeDark from "prism-react-renderer/themes/duotoneDark";
+import themeLight from "prism-react-renderer/themes/duotoneLight";
+/** @jsx jsx */
+import { jsx, useColorMode } from "theme-ui";
 
-/**
- * Component that renders a CodeSnippet.
- */
-const CodeBlock = ({ children, language }) => {
-  const codeMarkup = reactElementToJSXString(children);
+export default ({ children, className }) => {
+  const language = className.replace(/language-/, "");
+  const [colorMode] = useColorMode();
+
   return (
-    <Highlight {...defaultProps} code={codeMarkup} language="javascript">
+    <Highlight
+      {...defaultProps}
+      theme={colorMode === "default" ? themeDark : themeLight}
+      code={children.trim()}
+      language={language}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={{ ...style, padding: "20px" }}>
+        <pre
+          className={className}
+          style={{ ...style }}
+          sx={{
+            mb: 8,
+            mt: 0,
+            py: 8,
+            px: 6
+          }}
+        >
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (
@@ -28,5 +38,3 @@ const CodeBlock = ({ children, language }) => {
     </Highlight>
   );
 };
-
-export default CodeBlock;

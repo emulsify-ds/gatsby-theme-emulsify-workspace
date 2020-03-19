@@ -1,6 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
+
 import Site from "./Site";
 import SEO from "./seo";
 import "./layout.css";
@@ -9,29 +12,7 @@ import "./layout.css";
 import TableOfContents from "../Molecules/TableOfContents/TableOfContents.component";
 import StorybookComponent from "../Atoms/StorybookComponent/StorybookComponent.component";
 import CodeBlock from "../Atoms/CodeBlock/CodeBlock.component";
-import Code from "../Atoms/Code/Code.component";
-
-const HEADINGS = [
-  ({ children, props }) => <h1 {...props}>{children}</h1>,
-  ({ children, props }) => <h2 {...props}>{children}</h2>,
-  ({ children, props }) => <h3 {...props}>{children}</h3>,
-  ({ children, props }) => <h4 {...props}>{children}</h4>,
-  ({ children, props }) => <h5 {...props}>{children}</h5>,
-  ({ children, props }) => <h6 {...props}>{children}</h6>
-];
-
-const Heading = level => ({ props, children }) => {
-  const H = HEADINGS[level - 1];
-  const name =
-    typeof children === "string"
-      ? children.replace(/\s+/g, "-").toLowerCase()
-      : "";
-  return (
-    <a name={name} href={`#${name}`}>
-      <H {...props}>{children}</H>
-    </a>
-  );
-};
+import DarkWrapper from "../Atoms/DarkWrapper/DarkWrapper.component";
 
 export default props => {
   const { pageContext } = props;
@@ -42,18 +23,13 @@ export default props => {
    * so that they can use MDX to layout their component documentation, usage, etc.
    */
   const [components] = React.useState({
-    h1: Heading(1),
-    h2: Heading(2),
-    h3: Heading(3),
-    h4: Heading(4),
-    h5: Heading(5),
-    h6: Heading(6),
     TableOfContents: () => (
       <TableOfContents items={post.tableOfContents.items} />
     ),
+    pre: props => <div {...props} />,
     StorybookComponent,
-    CodeBlock,
-    Code
+    code: CodeBlock,
+    DarkWrapper
   });
   const site = props.data.site;
   const docPages = props.data.allMdx.edges;

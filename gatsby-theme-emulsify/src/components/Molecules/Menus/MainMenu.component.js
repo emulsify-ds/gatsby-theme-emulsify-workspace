@@ -1,6 +1,8 @@
-import React, { Component } from "react";
+import { Component } from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
+
 import "./main-menu.css";
-import "./main-menu-design.css";
 
 import DownIcon from "../../../../assets/down.svg";
 import UpIcon from "../../../../assets/up.svg";
@@ -33,14 +35,16 @@ export default class MainMenu extends Component {
       if (item.sourceInstanceName === filter) {
         // Not the following pages.
         if (item.name !== "index" || item.name !== "404") {
-          const itemDir = item.relativeDirectory;
-          // Only if it has a parent directory.
-          if (itemDir !== "") {
-            directoryTree.children.push({
-              parent: itemDir,
-              item: item,
-              active: item.childMdx.id === id ? true : false
-            });
+          if (item.childMdx) {
+            const itemDir = item.relativeDirectory;
+            // Only if it has a parent directory.
+            if (itemDir !== "") {
+              directoryTree.children.push({
+                parent: itemDir,
+                item: item,
+                active: item.childMdx.id === id ? true : false
+              });
+            }
           }
         }
       }
@@ -67,7 +71,12 @@ export default class MainMenu extends Component {
     const isComponentsMenu = name => name === "Components";
 
     return (
-      <React.Fragment>
+      <ul
+        className="main-menu"
+        sx={{
+          fontSize: 1
+        }}
+      >
         {Object.keys(groupedMenuItems).map((parentKey, parentIndex) => {
           const parentName = parentKey.split("__").pop();
           let activeItem = false;
@@ -77,6 +86,7 @@ export default class MainMenu extends Component {
             }
           });
           return (
+            // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
             <li
               key={parentIndex}
               className={`menu-item ${
@@ -87,16 +97,36 @@ export default class MainMenu extends Component {
                   : ""
               }`}
               onClick={this.toggle.bind(this, parentIndex)}
+              onKeyDown={this.toggle.bind(this, parentIndex)}
+              sx={{
+                borderBottom: "1px solid rgba(255, 255, 255, 0.4)",
+                fontSize: "1.1rem",
+                fontWeight: "heading",
+                mb: 1,
+                pb: 1
+              }}
             >
               <span>
                 {parentName}
                 <DownIcon
                   className="menu-icon menu-icon--down"
                   aria-label="Toggle Open"
+                  sx={{
+                    fill: "highlight",
+                    height: "20px",
+                    top: "7px",
+                    width: "20px"
+                  }}
                 />
                 <UpIcon
                   className="menu-icon menu-icon--up"
                   aria-label="Toggle Closed"
+                  sx={{
+                    fill: "highlight",
+                    height: "20px",
+                    top: "7px",
+                    width: "20px"
+                  }}
                 />
               </span>
               {isComponentsMenu(parentName) ? (
@@ -111,7 +141,7 @@ export default class MainMenu extends Component {
             </li>
           );
         })}
-      </React.Fragment>
+      </ul>
     );
   }
 }

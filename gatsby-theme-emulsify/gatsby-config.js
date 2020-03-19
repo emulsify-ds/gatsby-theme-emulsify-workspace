@@ -1,8 +1,10 @@
 const path = require("path");
+const _ = require("lodash");
 
 module.exports = ({
   componentLibPath = "components",
   docPagesPath = "styleguide",
+  UILibPath = "/storybook/iframe.html",
   basePath = "/",
   designSystems = [
     {
@@ -20,10 +22,10 @@ module.exports = ({
     description: "A Design System Driven by Gatsby"
   }
 }) => ({
-  pathPrefix: "/gatsby-theme-emulsify",
   siteMetadata: {
     ...siteMetadata,
-    designSystems
+    designSystems,
+    UILibPath
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -42,6 +44,12 @@ module.exports = ({
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src`
+      }
+    },
+    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
@@ -52,10 +60,20 @@ module.exports = ({
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [`.mdx`, `.md`]
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+              wrapperStyle: fluidResult =>
+                `flex:${_.round(fluidResult.aspectRatio, 2)};`
+            }
+          }
+        ]
       }
     },
-    `gatsby-transformer-remark`,
-    `gatsby-plugin-sharp`
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-theme-ui`
   ]
 });

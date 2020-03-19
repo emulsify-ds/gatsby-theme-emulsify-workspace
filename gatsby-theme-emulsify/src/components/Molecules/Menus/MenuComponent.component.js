@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import { Component } from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 
 import ListItem from "../../Atoms/ListItem/ListItem.component";
 
@@ -37,7 +39,16 @@ export default class MenuComponent extends Component {
     });
 
     return (
-      <ul className="menu-child">
+      <ul
+        className="menu-child"
+        sx={{
+          margin: theme => `0 0 0 ${theme.space[4]}`,
+          "& .menu-link": {
+            fontSize: 0,
+            textTransform: "uppercase"
+          }
+        }}
+      >
         {directoryTree.children.map(function(item, i) {
           return (
             <ListItem
@@ -47,6 +58,9 @@ export default class MenuComponent extends Component {
               itemName={item.item.childMdx.frontmatter.title}
               itemLink={item.item.childMdx.fields.slug}
               icon
+              sx={{
+                fontSize: 1
+              }}
             />
           );
         })}

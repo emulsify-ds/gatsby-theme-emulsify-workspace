@@ -6,10 +6,12 @@
   "scripts": {
     "develop": "npm run build-storybook && gatsby develop",
     "build": "npm run build-storybook && gatsby build",
+    "deploy-styleguide": "npm run build-storybook && gatsby build --prefix-paths && gh-pages -d public",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o static/storybook"
   },
   "dependencies": {
+    "cross-env": "7.0.0",
     "gatsby": "^2.19.7",
     "gatsby-theme-emulsify": "^1.0.0-alpha.7",
     "react": "^16.12.0",

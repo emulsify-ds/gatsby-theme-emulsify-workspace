@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import { Component } from "react";
 import { Link } from "gatsby";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 
 /**
  * Component that renders a list item.
@@ -39,8 +41,34 @@ export default class ListItem extends Component {
         className={`menu-item--child${
           active === true ? " menu-item--child--active" : ""
         }`}
+        sx={{
+          lineHeight: 1.4,
+          mb: 0,
+          pb: 0,
+          "&.menu-item--child--active::before": {
+            border: theme => `5px solid ${theme.colors.highlight}`,
+            borderBottomColor: "transparent",
+            borderRightColor: "transparent",
+            borderTopColor: "transparent",
+            borderRadius: 0,
+            left: "-2px",
+            ml: "-7px"
+          }
+        }}
       >
-        <Link className="menu-link" to={itemLink}>
+        <Link
+          className="menu-link"
+          to={itemLink}
+          sx={{
+            color: "background",
+            fontSize: 1,
+            fontWeight: "heading",
+            "&:hover": {
+              opacity: "0.75",
+              textDecoration: "none"
+            }
+          }}
+        >
           {listItemContent.title}
         </Link>
         {children}

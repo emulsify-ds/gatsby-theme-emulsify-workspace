@@ -1,12 +1,13 @@
 import React from "react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+/** @jsx jsx */
+import { Flex, jsx, useColorMode } from "theme-ui";
 
 import Sidebar from "../Organisms/Sidebar/Sidebar.component";
 import Tabs from "../Organisms/Tabs/Tabs.component";
 
 import "./site.css";
 import "./main.css";
-import "./main-design.css";
 
 export default ({
   title,
@@ -20,6 +21,7 @@ export default ({
   collection
 }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [colorMode, setColorMode] = useColorMode();
 
   const toggleOpen = () => {
     setIsMenuOpen(prevState => !prevState);
@@ -37,7 +39,7 @@ export default ({
     });
   return (
     <div className={isMenuOpen ? "wrapper-open wrapper" : "wrapper"}>
-      <div className="main">
+      <Flex className="main">
         <Sidebar
           id={id}
           pages={docPages}
@@ -47,14 +49,63 @@ export default ({
           collection={collection}
           designSystems={designSystems}
         />
-        <div className="main-content">
-          <h1 className="main-title">{pageTitle}</h1>
+        <Flex
+          className="main-content"
+          sx={{
+            flexBasis: [null, "80%", null]
+          }}
+        >
+          <button
+            onClick={e => {
+              setColorMode(colorMode === "default" ? "dark" : "default");
+            }}
+            sx={{
+              cursor: "pointer",
+              display: "block",
+              position: "fixed",
+              top: 4,
+              right: 4,
+              border: "none",
+              borderRadius: "2px",
+              padding: 2,
+              fontSize: 0,
+              zIndex: 10
+            }}
+          >
+            {colorMode === "default" ? "Dark" : "Light"}
+          </button>
+          <h1
+            className="main-title"
+            sx={{
+              background: theme =>
+                `linear-gradient(90deg, ${theme.colors.primary} 20px, transparent 1%) center, linear-gradient(${theme.colors.primary} 20px, transparent 1%) center, ${theme.colors.muted}`,
+              backgroundSize: "22px 22px",
+              color: "background",
+              fontSize: 9,
+              mb: 0,
+              marginTop: 0,
+              px: [4, null, 16],
+              py: [8, null, 48],
+              pb: [8, null, 8]
+            }}
+          >
+            {pageTitle}
+          </h1>
           {tabs.length ? <Tabs tabs={tabs} id={id} /> : null}
-          <div className="main-content-content">
+          <div
+            className="main-content-content"
+            sx={{
+              px: [4, null, 16],
+              py: 12,
+              "& h1": {
+                fontSize: 5
+              }
+            }}
+          >
             <MDXRenderer>{body}</MDXRenderer>
           </div>
-        </div>
-      </div>
+        </Flex>
+      </Flex>
     </div>
   );
 };

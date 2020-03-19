@@ -1,19 +1,40 @@
 import PropTypes from "prop-types";
-import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 
-const basePath = "/storybook/iframe.html";
-
-const StorybookComponent = ({ id, width, height }) => (
-  <iframe
-    style={{
-      border: "none",
-      width,
-      height
-    }}
-    title={`storybook-component-${id}`}
-    src={`${basePath}?id=${id}`}
-  />
-);
+const StorybookComponent = ({ id, height, data }) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query siteUILib {
+          site {
+            siteMetadata {
+              UILibPath
+            }
+          }
+        }
+      `}
+      render={data => (
+        <iframe
+          style={{
+            height
+          }}
+          sx={{
+            border: theme => `1px solid ${theme.colors.highlight}`,
+            display: "block",
+            margin: 0,
+            minHeight: "150px",
+            padding: 2,
+            width: "100%"
+          }}
+          title={`storybook-component-${id}`}
+          src={`${data.site.siteMetadata.UILibPath}?id=${id}`}
+        />
+      )}
+    />
+  );
+};
 
 StorybookComponent.propTypes = {
   id: PropTypes.string,

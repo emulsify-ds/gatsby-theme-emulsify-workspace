@@ -39,7 +39,6 @@ exports.createPages = ({ actions, graphql }) => {
     // Create component pages.
     const mdFiles = result.data.allMdx.nodes;
 
-
     mdFiles.forEach(mdFile => {
       const fileRead = Promise.resolve("No Code found");
       return fileRead.then(() => {
