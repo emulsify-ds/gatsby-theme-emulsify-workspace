@@ -1,18 +1,30 @@
 ---
-title: "CTAs"
-description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+title: "CTA Component"
+description: "Another example component page documenting a Call to Action"
 tab: "Code"
 tabOrder: 1
 publishToStyleGuide: true
 ---
 
-# This is a CTA
+## This is a CTA Component
 
-This is a CTA that uses a button in it.
+Notice that there are tabs at the top of the component pages. Those are added using a couple of fields in the front matter like so:
 
-## Example
+```html
+tab: "Code"
+tabOrder: 1
+```
+
+"Tab" is the name of the tab and tabOrder controls where it falls in the order of the tabs.
+
+## CTA Component
 
 <StorybookComponent id="cta--example" height="240px" />
+
+---
+Note: You can lay out components however you like including content around or below them and between your component and code.
+
+## CTA Code
 
 ```html
 <Cta
@@ -20,3 +32,5 @@ This is a CTA that uses a button in it.
   content="Click here"
 />
 ```
+
+[Next: Documentation](/3__resources/documentation/)
