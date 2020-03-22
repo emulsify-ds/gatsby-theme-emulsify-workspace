@@ -34,6 +34,7 @@
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.4.5",
     "gatsby-plugin-theme-ui": "^0.3.0",
+    "gatsby-remark-copy-linked-files": "^2.2.0",
     "gatsby-remark-images": "^3.1.50",
     "gatsby-source-filesystem": "^2.1.48",
     "gh-pages": "^2.2.0",

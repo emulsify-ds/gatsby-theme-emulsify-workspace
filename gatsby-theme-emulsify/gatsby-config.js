@@ -69,7 +69,8 @@ module.exports = ({
               wrapperStyle: fluidResult =>
                 `flex:${_.round(fluidResult.aspectRatio, 2)};`
             }
-          }
+          },
+          `gatsby-remark-copy-linked-files`
         ]
       }
     },
