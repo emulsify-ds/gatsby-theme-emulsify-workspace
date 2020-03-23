@@ -1,7 +1,7 @@
 {
   "name": "gatsby-theme-emulsify",
-  "version": "1.0.0-alpha.17",
-  "description": "Emulsify Style Guide",
+  "version": "1.0.0-alpha.23",
+  "description": "A Style Guide Generator using MDX and Theme UI. It reads your documentation and component library and generates a style guide.",
   "main": "gatsby-config.js",
   "keywords": [
     "gatsby",
@@ -13,7 +13,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:fourkitchens/gatsby-theme-emulsify.git"
+    "url": "https://github.com/emulsify-ds/gatsby-theme-emulsify-workspace.git",
+    "directory": "gatsby-theme-emulsify"
   },
   "author": "Evan Willhite <evan@fourkitchens.com>",
   "license": "MIT",
@@ -34,6 +35,7 @@
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.4.5",
     "gatsby-plugin-theme-ui": "^0.3.0",
+    "gatsby-remark-copy-linked-files": "^2.2.0",
     "gatsby-remark-images": "^3.1.50",
     "gatsby-source-filesystem": "^2.1.48",
     "gh-pages": "^2.2.0",

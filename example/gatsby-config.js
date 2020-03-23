@@ -6,6 +6,7 @@ module.exports = {
       options: {
         componentLibPath: 'components', // Where your component library lives
         docPagesPath: 'styleguide', // Where your custom styleguide pages live
+        UILibPath: "https://lucid-colden-c2abf5.netlify.com/iframe.html", // Where your Storybook instance lives
         basePath: __dirname, // Needed to make above paths relative to your project
         // designSystems: [
         //   {
