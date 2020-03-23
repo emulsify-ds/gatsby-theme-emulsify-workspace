@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-emulsify",
-  "version": "1.0.0-alpha.19",
+  "version": "1.0.0-alpha.20",
   "description": "Emulsify Style Guide",
   "main": "gatsby-config.js",
   "keywords": [
@@ -13,7 +13,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:fourkitchens/gatsby-theme-emulsify.git"
+    "url": "https://github.com/emulsify-ds/gatsby-theme-emulsify-workspace.git",
+    "directory": "gatsby-theme-emulsify"
   },
   "author": "Evan Willhite <evan@fourkitchens.com>",
   "license": "MIT",
