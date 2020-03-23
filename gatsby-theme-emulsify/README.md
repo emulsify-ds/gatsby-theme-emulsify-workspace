@@ -9,6 +9,11 @@
 
 The Emulsify Gatsby Theme is a fully customizable/themeable style guide _generator_ built with Gatsby. It reads your documentation and component library and builds a style guide for you. Using MDX you can author custom documentation for your components as well as any other pages for your design system audience.
 
+## Examples
+
+1. [Western University of Pennsylvania](https://laughing-pike-7c72c6.netlify.com/)
+2. [Default example](https://emulsify-ds.github.io/gatsby-theme-emulsify-workspace/) (no overrides, just default content)
+
 ## Setup
 
 ### Installation
