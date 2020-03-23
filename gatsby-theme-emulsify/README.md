@@ -1,4 +1,4 @@
-<img src="./EmulsifyDesignSystem.png" />
+<img src="https://raw.githubusercontent.com/emulsify-ds/gatsby-theme-emulsify-workspace/master/EmulsifyDesignSystem.png" />
 
 [![Four Kitchens](https://img.shields.io/badge/4K-Four%20Kitchens-35AA4E.svg)](https://fourkitchens.com/)
 
