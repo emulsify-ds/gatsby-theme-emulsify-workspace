@@ -96,7 +96,6 @@ For complete control, Gatsby themes allow fully overriding components via [shado
 
 ## Roadmap
 
-- Resources - support file uploads (and downloads)
 - Code Tabs shortcode for adding multiple "tabs" for different kinds of code
 - Search
 - Remove ordering numbers (01_) from url slug
