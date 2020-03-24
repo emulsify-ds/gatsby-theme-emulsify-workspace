@@ -7,12 +7,12 @@ exports.onCreateDevServer = ({ app }) => {
   app.use(express.static(`public`));
 };
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
   const ComponentPost = require.resolve(`./src/components/Templates/layout.js`);
 
-  return graphql(`
+  const result = await graphql(`
     {
       allMdx(
         limit: 1000
@@ -31,27 +31,20 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(result => {
-    if (result.errors) {
-      throw result.errors;
-    }
+  `);
+  if (result.errors) {
+    throw result.errors;
+  }
 
-    // Create component pages.
-    const mdFiles = result.data.allMdx.nodes;
-
-    mdFiles.forEach(mdFile => {
-      const fileRead = Promise.resolve("No Code found");
-      return fileRead.then(() => {
-        createPage({
-          path: mdFile.fields.slug,
-          component: ComponentPost,
-          context: {
-            slug: mdFile.fields.slug,
-            collection: mdFile.fields.collection,
-            parentDir: mdFile.fields.parentDir
-          }
-        });
-      });
+  result.data.allMdx.nodes.forEach(mdFile => {
+    createPage({
+      path: mdFile.fields.slug,
+      component: ComponentPost,
+      context: {
+        slug: mdFile.fields.slug,
+        collection: mdFile.fields.collection,
+        parentDir: mdFile.fields.parentDir
+      }
     });
   });
 };
