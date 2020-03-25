@@ -47,4 +47,4 @@ Table:
 | Header | Title |
 | Paragraph | Text |
 
-[Next: Component Documentation](/00-button/code/)
+[Next: Component Documentation](/button/code/)
