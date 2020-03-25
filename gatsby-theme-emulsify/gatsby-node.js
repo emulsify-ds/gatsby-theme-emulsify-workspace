@@ -65,7 +65,6 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
     }).toLowerCase();
     value = value.replace(/\s+/g, "-").toLowerCase();
     value = value.replace(/[0-9]+_{2,2}/g, "");
-    // console.log(value.replace(/[0-9]+_{2,2}/g, ""));
     createNodeField({
       name: `slug`,
       node,
