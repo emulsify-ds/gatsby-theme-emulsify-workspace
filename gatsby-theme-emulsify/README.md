@@ -22,33 +22,58 @@ As per Gatsby theme best practices, this repo is a Yarn workspace containing the
 
 To install just the Gatsby theme in your project, run:
 
-`npm i gatsby-theme-emulsify`
+`npm i gatsby gatsby-theme-emulsify`
+
+### Setting up Basic Site Information
+
+Create a local `gatsby-config.js` file (see [the example one](https://github.com/emulsify-ds/gatsby-theme-emulsify-workspace/blob/master/example/gatsby-config.js) for documented options) and enter your basic site information in the `siteMetadata` fields.
 
 ### Documenting Pages
 
-Writing MDX (and Markdown) is supported out of the box. As you can see in the example project, if you create a `styleguide` directory in the root of your starter (this path is configurable in your `gatsby-config.js` file) and start adding directories and pages, they will automatically populate to the style guide. Note: the `Components` directory will be treated uniquely because it is expected that your project components live separately - read on for more info about documenting components:
+Writing MDX/Markdown is supported out of the box. By default, if you create a `styleguide` directory in the root of your starter and start adding directories and pages, they will automatically populate to the style guide (you can also set this path to something different in the `docPagesPath` field of your local `gatsby-config.js` file). Note: the directory name `Components` is reserved, because it is expected that your project components live separately so any pages you add in that path won't be loaded - read on for more info about documenting components.
 
 ### Documenting Components
 
-By default, this project will look for component documentation in your `components` directory, but that path is also configurable via `gatsby-config.js`. Create an MDX (or Markdown) file alongside any component in that directory to document it and the Gatsby theme will automatically consume them.
+By default, the style guide will look for component documentation in your `components` directory, but that path is also configurable via a local `gatsby-config.js` using the `componentLibPath` field. Once you have that set, create an MDX (or Markdown) file alongside any component in that directory to document it and the Gatsby theme will automatically consume them and add them to the reserved `Components` directory (again, see `example` components).
+
 
 #### Displaying Components - Storybook Installation
 
-If you'd like to display isolated components in your style guide, there is built-in support for [Storybook](https://storybook.js.org/). To leverage this in your project, follow Storybook's instructions for installing. Here were the steps we took to install in the `example` project:
+If you'd like to display isolated components in your style guide, there is built-in support for [Storybook](https://storybook.js.org/). To leverage this in your project, follow Storybook's instructions for installing based on your need. Here were the steps we took to install in the `example` project:
 
 1. Install Storybook: `npx -p @storybook/cli sb init`
-2. Configure Storybook build path for Gatsby: in `package.json`, change your Storybook build script to be:
+2. Configure Storybook build path for Gatsby: in `package.json`, e.g., change your Storybook build script to be:
 
-`"build-storybook": "build-storybook -o static/storybook"`
+`"build-storybook": "build-storybook -o static/storybook" // Again, based on where you want to build/deploy`
 
-3. Run Storybook build with Gatsby commands (optional): in `package.json`, you can change the following two Gatsby commands to be:
+3. Set your Storybook iframe build path in the `UILibPath` field in `gatsby-config.js` (e.g., if you use `/static/storybook` like above, you could use your local path like `/storybook/iframe.html`). This can also be a remote source if you're deploying your Storybook instance somewhere else.
+4. Run Storybook build with Gatsby commands (optional): in `package.json`, you can change the following Gatsby commands to be:
 
 ```
-"develop": "npm run build-storybook && gatsby develop",
-"build": "npm run build-storybook && gatsby build",
+"styleguide-develop": "npm run build-storybook && gatsby develop",
+"styleguide-build": "npm run build-storybook && gatsby build",
+"styleguide-deploy": "npm run build-storybook && gatsby build --prefix-paths && gh-pages -d public"
 ```
 
-Now, when running `yarn develop`, you will be building your Storybook instance to Gatsby's static directory as a part of your Gatsby workflow. 
+##### Emulsify Drupal Specific
+
+If you're using [Emulsify Drupal](https://github.com/emulsify-ds/emulsify-drupal), you will also want to do the following:
+
+5. Uncomment the Gatsby-specific sections of `.storybook/webpack.config.js` and `.storybook/config.js` and edit `babel.config.js` to be the following:
+
+```
+module.exports = api => {
+  api.cache(true);
+
+  const presets = ['babel-preset-gatsby', 'minify'];
+
+  const comments = false;
+
+  return { presets, comments };
+};
+```
+
+Now, when running `yarn styleguide-develop`, you will be building your Storybook instance to Gatsby's static directory as a part of your Gatsby style guide build.
 
 #### Displaying Components - MDX
 
@@ -103,4 +128,3 @@ For complete control, Gatsby themes allow fully overriding components via [shado
 
 - Search
 - Remove ordering numbers (01_) from url slug
-

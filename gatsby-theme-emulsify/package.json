@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-emulsify",
-  "version": "1.0.0-alpha.24",
+  "version": "1.0.0-alpha.25",
   "description": "A Style Guide Generator using MDX and Theme UI. It reads your documentation and component library and generates a style guide.",
   "main": "gatsby-config.js",
   "keywords": [
