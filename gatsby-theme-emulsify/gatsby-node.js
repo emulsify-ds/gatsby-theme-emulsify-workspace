@@ -10,41 +10,47 @@ exports.onCreateDevServer = ({ app }) => {
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  const ComponentPost = require.resolve(`./src/components/Templates/layout.js`);
+  const PageLayout = require.resolve(`./src/components/Templates/layout.js`);
 
-  const result = await graphql(`
-    {
-      allMdx(
-        limit: 1000
-        filter: { frontmatter: { publishToStyleGuide: { eq: true } } }
-      ) {
-        nodes {
-          fields {
-            parentDir
-            slug
-          }
-          frontmatter {
-            title
-            description
-            publishToStyleGuide
+  return graphql(
+    `
+      query loadPagesQuery($limit: Int!) {
+        allMdx(
+          limit: $limit
+          filter: { frontmatter: { publishToStyleGuide: { eq: true } } }
+        ) {
+          edges {
+            node {
+              fields {
+                parentDir
+                slug
+              }
+              frontmatter {
+                title
+                description
+                publishToStyleGuide
+              }
+            }
           }
         }
       }
+    `,
+    { limit: 1000 }
+  ).then(result => {
+    if (result.errors) {
+      throw result.errors;
     }
-  `);
-  if (result.errors) {
-    throw result.errors;
-  }
 
-  result.data.allMdx.nodes.forEach(mdFile => {
-    createPage({
-      path: mdFile.fields.slug,
-      component: ComponentPost,
-      context: {
-        slug: mdFile.fields.slug,
-        collection: mdFile.fields.collection,
-        parentDir: mdFile.fields.parentDir
-      }
+    result.data.allMdx.edges.forEach(edge => {
+      createPage({
+        path: edge.node.fields.slug,
+        component: PageLayout,
+        context: {
+          slug: edge.node.fields.slug,
+          collection: edge.node.fields.collection,
+          parentDir: edge.node.fields.parentDir
+        }
+      });
     });
   });
 };
@@ -58,6 +64,8 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
       getNode
     }).toLowerCase();
     value = value.replace(/\s+/g, "-").toLowerCase();
+    value = value.substring(value.indexOf(/_+/g, "_") + 1);
+    console.log(value);
     createNodeField({
       name: `slug`,
       node,
