@@ -71,17 +71,23 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
       value
     });
 
-    // Get the parent node
-    const parent = getNode(_.get(node, "parent"));
-    createNodeField({
-      node,
-      name: "collection",
-      value: _.get(parent, "sourceInstanceName")
-    });
-    createNodeField({
-      node,
-      name: "parentDir",
-      value: _.get(parent, "relativeDirectory")
-    });
+    // For items added to menu, get the parent node.
+    if (
+      node.frontmatter.title !== "404 Page Not Found" ||
+      node.frontmatter.title !== "Home"
+    ) {
+      const parent = getNode(_.get(node, "parent"));
+      console.log(parent);
+      createNodeField({
+        node,
+        name: "collection",
+        value: _.get(parent, "sourceInstanceName")
+      });
+      createNodeField({
+        node,
+        name: "parentDir",
+        value: _.get(parent, "relativeDirectory")
+      });
+    }
   }
 };
