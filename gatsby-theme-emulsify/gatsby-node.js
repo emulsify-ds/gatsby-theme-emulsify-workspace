@@ -17,11 +17,18 @@ function createMenuHierarchy(menuData, menuName) {
   menuData.forEach(menuItem => {
     // Check before adding items (e.g., && arrElem.enabled === true)
     if (menuItem.menu_name === menuName) {
-      menuObject[menuItem.id] = menuItem;
-      if (menuItem.parent_menu_item != null) {
+      // If traditional menu structure (parents are links)
+      if (menuItem.parent_menu_item !== null) {
+        menuObject[menuItem.id] = menuItem;
         menuObject[menuItem.id].parent_menu_item = menuItem.parent_menu_item;
+        menuObject[menuItem.id]["children"] = [];
       }
-      menuObject[menuItem.id]["children"] = [];
+      // If parent is just a directory
+      if (menuItem.parent_dir !== null) {
+        menuObject[menuItem.parent_dir] = [];
+        // menuObject[menuItem.id].parent_dir = menuItem.parent_dir;
+        menuObject[menuItem.parent_dir]["children"] = [];
+      }
     }
   });
 
@@ -31,6 +38,8 @@ function createMenuHierarchy(menuData, menuName) {
       // If the element is not at the root level, add it to its parent array of children.
       if (mappedElem.parent_menu_item) {
         menuObject[mappedElem.parent_menu_item]["children"].push(mappedElem);
+      } else if (mappedElem.parent_dir) {
+        menuObject[mappedElem.parent_dir]["children"].push(mappedElem);
       }
       // If the element is at the root level, add it to first level elements array.
       else {
@@ -44,42 +53,30 @@ function createMenuHierarchy(menuData, menuName) {
 // Form of working Menu Data
 const menuData = [
   {
-    id: "dfa706ff-e44c-5705-a28d-17efeab2c7ed",
-    menu_name: "Menu Name Test",
-    menu_item_name: "Somewhere (Parent)",
-    menu_item_url: "/somewhere"
-  },
-  {
     id: "68006957-d13a-50db-9f11-42789d95781c",
     menu_name: "Menu Name Test",
-    parent_menu_item: "dfa706ff-e44c-5705-a28d-17efeab2c7ed",
+    parent_dir: "0__Getting started",
     menu_item_name: "Somewhere Sub 1 (Child)",
     menu_item_url: "/somewhere/else"
   },
   {
     id: "716336ad-8ef2-5e1a-b053-e759275bdd07",
     menu_name: "Menu Name Test",
-    parent_menu_item: "dfa706ff-e44c-5705-a28d-17efeab2c7ed",
+    parent_dir: "0__Getting started",
     menu_item_name: "Somewhere Sub 2 (Child)",
     menu_item_url: "/somewhere/else-2"
   },
   {
-    id: "457eff05-37e1-501d-8a6f-4fa555a0b337",
-    menu_name: "Menu Name Test",
-    menu_item_name: "Elsewhere (Parent)",
-    menu_item_url: "/elsewhere"
-  },
-  {
     id: "7f107164-fbe4-519f-af8e-e3e441a4f6fa",
     menu_name: "Menu Name Test",
-    parent_menu_item: "457eff05-37e1-501d-8a6f-4fa555a0b337",
+    parent_dir: "1__Documentation",
     menu_item_name: "Elsewhere Sub 1 (Child)",
     menu_item_url: "/elsewhere/else"
   },
   {
     id: "29c74508-cb69-5002-8818-7ca6e1e5163f",
     menu_name: "Menu Name Test",
-    parent_menu_item: "457eff05-37e1-501d-8a6f-4fa555a0b337",
+    parent_dir: "1__Documentation",
     menu_item_name: "Elsewhere Sub 2 (Child)",
     menu_item_url: "/elsewhere/else-2"
   }
