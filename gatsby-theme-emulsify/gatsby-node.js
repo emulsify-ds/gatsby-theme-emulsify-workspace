@@ -51,36 +51,36 @@ function createMenuHierarchy(menuData, menuName) {
 }
 
 // Form of working Menu Data
-const menuData = [
-  {
-    id: "68006957-d13a-50db-9f11-42789d95781c",
-    menu_name: "Menu Name Test",
-    parent_dir: "0__Getting started",
-    menu_item_name: "Somewhere Sub 1 (Child)",
-    menu_item_url: "/somewhere/else"
-  },
-  {
-    id: "716336ad-8ef2-5e1a-b053-e759275bdd07",
-    menu_name: "Menu Name Test",
-    parent_dir: "0__Getting started",
-    menu_item_name: "Somewhere Sub 2 (Child)",
-    menu_item_url: "/somewhere/else-2"
-  },
-  {
-    id: "7f107164-fbe4-519f-af8e-e3e441a4f6fa",
-    menu_name: "Menu Name Test",
-    parent_dir: "1__Documentation",
-    menu_item_name: "Elsewhere Sub 1 (Child)",
-    menu_item_url: "/elsewhere/else"
-  },
-  {
-    id: "29c74508-cb69-5002-8818-7ca6e1e5163f",
-    menu_name: "Menu Name Test",
-    parent_dir: "1__Documentation",
-    menu_item_name: "Elsewhere Sub 2 (Child)",
-    menu_item_url: "/elsewhere/else-2"
-  }
-];
+// const menuData = [
+//   {
+//     id: "68006957-d13a-50db-9f11-42789d95781c",
+//     menu_name: "Menu Name Test",
+//     parent_dir: "0__Getting started",
+//     menu_item_name: "Somewhere Sub 1 (Child)",
+//     menu_item_url: "/somewhere/else"
+//   },
+//   {
+//     id: "716336ad-8ef2-5e1a-b053-e759275bdd07",
+//     menu_name: "Menu Name Test",
+//     parent_dir: "0__Getting started",
+//     menu_item_name: "Somewhere Sub 2 (Child)",
+//     menu_item_url: "/somewhere/else-2"
+//   },
+//   {
+//     id: "7f107164-fbe4-519f-af8e-e3e441a4f6fa",
+//     menu_name: "Menu Name Test",
+//     parent_dir: "1__Documentation",
+//     menu_item_name: "Elsewhere Sub 1 (Child)",
+//     menu_item_url: "/elsewhere/else"
+//   },
+//   {
+//     id: "29c74508-cb69-5002-8818-7ca6e1e5163f",
+//     menu_name: "Menu Name Test",
+//     parent_dir: "1__Documentation",
+//     menu_item_name: "Elsewhere Sub 2 (Child)",
+//     menu_item_url: "/elsewhere/else-2"
+//   }
+// ];
 
 // Working Menu Array Creation
 // console.log(createMenuHierarchy(menuData, "Menu Name Test"));
@@ -96,6 +96,7 @@ exports.createPages = async ({ actions, graphql }) => {
         allMdx(
           limit: $limit
           filter: { frontmatter: { publishToStyleGuide: { eq: true } } }
+          sort: { order: ASC, fields: fields___sortOrder }
         ) {
           edges {
             node {
@@ -143,7 +144,8 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
       getNode
     }).toLowerCase();
     value = value.replace(/\s+/g, "-").toLowerCase();
-    value = value.replace(/[0-9]+_{2,2}/g, "");
+    const sortOrder = value.match(/[0-9]+_{2,2}/g);
+    value = value.replace(sortOrder, "");
     createNodeField({
       name: `slug`,
       node,
@@ -155,6 +157,11 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
       node.frontmatter.title !== "404 Page Not Found" ||
       node.frontmatter.title !== "Home"
     ) {
+      createNodeField({
+        node,
+        name: `sortOrder`,
+        value: sortOrder
+      });
       const parent = getNode(_.get(node, "parent"));
       createNodeField({
         node,
