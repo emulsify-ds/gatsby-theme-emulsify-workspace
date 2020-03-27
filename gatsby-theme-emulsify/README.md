@@ -30,7 +30,7 @@ Create a local `gatsby-config.js` file (see [the example one](https://github.com
 
 ### Documenting Pages
 
-Writing MDX/Markdown is supported out of the box. By default, if you create a `styleguide` directory in the root of your starter and start adding directories and pages, they will automatically populate to the style guide (you can also set this path to something different in the `docPagesPath` field of your local `gatsby-config.js` file). Note: the directory name `Components` is reserved, because it is expected that your project components live separately so any pages you add in that path won't be loaded - read on for more info about documenting components.
+Writing MDX/Markdown is supported out of the box. By default, if you create a `styleguide` directory in the root of your starter and start adding directories and pages (you have to at least create index.md and 404.md), they will automatically populate to the style guide (you can also set this path to something different in the `docPagesPath` field of your local `gatsby-config.js` file). Note: the directory name `Components` is reserved, because it is expected that your project components live separately so although you should create that directory if you want Components, any pages you add inside it won't be loaded - read on for more info about documenting those components.
 
 ### Documenting Components
 
