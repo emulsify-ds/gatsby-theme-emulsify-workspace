@@ -103,7 +103,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allFile {
+    allFile(sort: { fields: childMdx___fields___sortOrder }) {
       nodes {
         sourceInstanceName
         relativeDirectory

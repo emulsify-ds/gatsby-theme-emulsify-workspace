@@ -7,7 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Cta.css';
 
-import Button from "../00-Button/Button.component";
+import Button from "../0__Button/Button.component";
 
 
 /**

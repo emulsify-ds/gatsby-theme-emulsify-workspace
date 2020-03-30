@@ -7,50 +7,51 @@ exports.onCreateDevServer = ({ app }) => {
   app.use(express.static(`public`));
 };
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  const ComponentPost = require.resolve(`./src/components/Templates/layout.js`);
+  const PageLayout = require.resolve(`./src/components/Templates/layout.js`);
 
-  return graphql(`
-    {
-      allMdx(
-        limit: 1000
-        filter: { frontmatter: { publishToStyleGuide: { eq: true } } }
-      ) {
-        nodes {
-          fields {
-            parentDir
-            slug
-          }
-          frontmatter {
-            title
-            description
-            publishToStyleGuide
+  return graphql(
+    `
+      query loadPagesQuery($limit: Int!) {
+        allMdx(
+          limit: $limit
+          filter: { frontmatter: { publishToStyleGuide: { eq: true } } }
+          sort: { order: ASC, fields: fields___sortOrder }
+        ) {
+          edges {
+            node {
+              id
+              fields {
+                parentDir
+                slug
+              }
+              frontmatter {
+                title
+                description
+                publishToStyleGuide
+              }
+            }
           }
         }
       }
-    }
-  `).then(result => {
+    `,
+    { limit: 1000 }
+  ).then(result => {
     if (result.errors) {
       throw result.errors;
     }
 
-    // Create component pages.
-    const mdFiles = result.data.allMdx.nodes;
-
-    mdFiles.forEach(mdFile => {
-      const fileRead = Promise.resolve("No Code found");
-      return fileRead.then(() => {
-        createPage({
-          path: mdFile.fields.slug,
-          component: ComponentPost,
-          context: {
-            slug: mdFile.fields.slug,
-            collection: mdFile.fields.collection,
-            parentDir: mdFile.fields.parentDir
-          }
-        });
+    result.data.allMdx.edges.forEach(edge => {
+      createPage({
+        path: edge.node.fields.slug,
+        component: PageLayout,
+        context: {
+          slug: edge.node.fields.slug,
+          collection: edge.node.fields.collection,
+          parentDir: edge.node.fields.parentDir
+        }
       });
     });
   });
@@ -65,23 +66,35 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
       getNode
     }).toLowerCase();
     value = value.replace(/\s+/g, "-").toLowerCase();
+    const sortOrder = value.match(/[0-9]+_{2,2}/g);
+    value = value.replace(/[0-9]+_{2,2}/g, "");
     createNodeField({
       name: `slug`,
       node,
       value
     });
 
-    // Get the parent node
-    const parent = getNode(_.get(node, "parent"));
-    createNodeField({
-      node,
-      name: "collection",
-      value: _.get(parent, "sourceInstanceName")
-    });
-    createNodeField({
-      node,
-      name: "parentDir",
-      value: _.get(parent, "relativeDirectory")
-    });
+    // For items added to menu, get the parent node.
+    if (
+      node.frontmatter.title !== "404 Page Not Found" ||
+      node.frontmatter.title !== "Home"
+    ) {
+      createNodeField({
+        node,
+        name: `sortOrder`,
+        value: sortOrder
+      });
+      const parent = getNode(_.get(node, "parent"));
+      createNodeField({
+        node,
+        name: "collection",
+        value: _.get(parent, "sourceInstanceName")
+      });
+      createNodeField({
+        node,
+        name: "parentDir",
+        value: _.get(parent, "relativeDirectory")
+      });
+    }
   }
 };
