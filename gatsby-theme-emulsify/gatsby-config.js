@@ -46,7 +46,8 @@ module.exports = ({
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src`
+        name: `default`,
+        path: `${__dirname}/src/default`
       }
     },
     {
@@ -61,6 +62,9 @@ module.exports = ({
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
+        defaultLayouts: {
+          default: path.join(basePath, `./src/components/Templates/layout.js`)
+        },
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
