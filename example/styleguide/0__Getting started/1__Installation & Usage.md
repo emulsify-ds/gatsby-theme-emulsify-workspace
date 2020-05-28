@@ -109,4 +109,4 @@ designSystems: [
 ],
 ```
 
-[Next: Example Documentation](/1__documentation/0__colors/)
+[Next: Example Documentation](/documentation/colors/)
