@@ -1,13 +1,12 @@
-<img src="https://raw.githubusercontent.com/emulsify-ds/gatsby-theme-emulsify-workspace/master/EmulsifyDesignSystem.png" />
+<p align="center"><img src="https://raw.githubusercontent.com/emulsify-ds/documentation/master/.gitbook/assets/logo.png" width="400" /></p>
 
-[![Four Kitchens](https://img.shields.io/badge/4K-Four%20Kitchens-35AA4E.svg)](https://fourkitchens.com/)
+Emulsify is an open-source tool for creating design systems with reusable components and clear guidelines for teams. Emulsify helps organizations scale their design while reducing cost, streamlining workflows, and improving accessibility.
 
-<h4 align="center">A Style Guide <em>Generator</em> powered by <a href="https://gatsbyjs.org">Gatsby</a>, <a href="https://github.com/mdx-js/specification">MDX</a>, and <a href="https://theme-ui.com/">Theme UI</a>.
-</h4>
+# Emulsify Gatsby theme
 
-## Summary
+### Style guide _generator_ powered by <a href="https://gatsbyjs.org">Gatsby</a>, <a href="https://github.com/mdx-js/specification">MDX</a>, and <a href="https://theme-ui.com/">Theme UI</a>
 
-The Emulsify Gatsby Theme is a fully customizable/themeable style guide _generator_ built with Gatsby. It reads your documentation and component library and builds a style guide for you. Using MDX you can author custom documentation for your components as well as any other pages for your design system audience.
+**Emulsify Gatsby theme** is a fully customizable/themeable style guide _generator_ built with Gatsby. It reads your documentation and component library and builds a style guide for you. Using MDX you can author custom documentation for your components as well as any other pages for your design system audience.
 
 ## Examples
 
@@ -18,7 +17,7 @@ The Emulsify Gatsby Theme is a fully customizable/themeable style guide _generat
 
 ### Installation
 
-As per Gatsby theme best practices, this repo is a Yarn workspace containing the Gatsby theme as well as an `example` directory to see how to use it in a project. 
+As per Gatsby theme best practices, this repo is a Yarn workspace containing the Gatsby theme as well as an `example` directory to see how to use it in a project.
 
 To install just the Gatsby theme in your project, run:
 
@@ -30,7 +29,7 @@ Create a local `gatsby-config.js` file (see [the example one](https://github.com
 
 ### Documenting Pages
 
-Writing MDX/Markdown is supported out of the box. By default, if you create a `styleguide` directory in the root of your starter and start adding directories and pages, they will automatically populate to the style guide (you can also set this path to something different in the `docPagesPath` field of your local `gatsby-config.js` file). Note: the directory name `Components` is reserved, because it is expected that your project components live separately so any pages you add in that path won't be loaded - read on for more info about documenting components.
+Writing MDX/Markdown is supported out of the box. By default, if you create a `styleguide` directory in the root of your starter and start adding directories and pages (you have to at least create index.md and 404.md), they will automatically populate to the style guide (you can also set this path to something different in the `docPagesPath` field of your local `gatsby-config.js` file). Note: the directory name `Components` is reserved, because it is expected that your project components live separately so although you should create that directory if you want Components, any pages you add inside it won't be loaded - read on for more info about documenting those components.
 
 ### Documenting Components
 
@@ -107,7 +106,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 ## Theming
 
-The style guide should match your organization's identity, so it is important that this project is fully customizable. 
+The style guide should match your organization's identity, so it is important that this project is fully customizable.
 
 ### Theme UI
 
@@ -128,3 +127,7 @@ For complete control, Gatsby themes allow fully overriding components via [shado
 
 - Search
 - Remove ordering numbers (01_) from url slug
+
+## Author
+
+Emulsify&reg; is a product of [Four Kitchens &mdash; We make BIG websites](https://fourkitchens.com).
