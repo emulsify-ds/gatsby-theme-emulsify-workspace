@@ -78,7 +78,6 @@ export default class MainMenu extends Component {
         {Object.keys(groupedMenuItems).map((parentKey, parentIndex) => {
           const parentName = parentKey.split("-").pop();
           const parentNameSplit = parentName.split("_").pop();
-          const parentNameFinal = parentNameSplit.split("__").pop();
           let activeItem = false;
           groupedMenuItems[parentKey].forEach(item => {
             if (item.childMdx.id === id) {
@@ -107,7 +106,7 @@ export default class MainMenu extends Component {
               }}
             >
               <span>
-                {parentNameFinal}
+                {parentNameSplit}
                 <DownIcon
                   className="menu-icon menu-icon--down"
                   aria-label="Toggle Open"
@@ -129,7 +128,7 @@ export default class MainMenu extends Component {
                   }}
                 />
               </span>
-              {isComponentsMenu(parentNameFinal) ? (
+              {isComponentsMenu(parentNameSplit) ? (
                 <MenuComponent menu={menu} filter="components" id={id} />
               ) : (
                 <Menu
