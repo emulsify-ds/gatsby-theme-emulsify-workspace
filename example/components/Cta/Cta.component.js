@@ -7,7 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Cta.css';
 
-import Button from "../0__Button/Button.component";
+import Button from "../Button/Button.component";
 
 
 /**
@@ -17,7 +17,7 @@ const Cta = props => {
   const { heading, content } = props;
 
   return (
-    <div class="cta">
+    <div className="cta">
       <h2>{heading}</h2>
       <Button>{content}</Button>
     </div>

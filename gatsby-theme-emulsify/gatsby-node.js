@@ -66,8 +66,6 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
       getNode
     }).toLowerCase();
     value = value.replace(/\s+/g, "-").toLowerCase();
-    const sortOrder = value.match(/[0-9]+_{2,2}/g);
-    value = value.replace(/[0-9]+_{2,2}/g, "");
     createNodeField({
       name: `slug`,
       node,
@@ -82,7 +80,7 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
       createNodeField({
         node,
         name: `sortOrder`,
-        value: sortOrder
+        value: value
       });
       const parent = getNode(_.get(node, "parent"));
       createNodeField({
