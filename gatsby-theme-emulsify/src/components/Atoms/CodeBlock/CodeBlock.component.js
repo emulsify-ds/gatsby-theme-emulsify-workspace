@@ -5,7 +5,8 @@ import themeLight from "prism-react-renderer/themes/duotoneLight";
 import { jsx, useColorMode } from "theme-ui";
 
 export default ({ children, className }) => {
-  const language = className.replace(/language-/, "");
+  const languageClass = className || `language-html`;
+  const language = languageClass.replace(/language-/, "");
   const [colorMode] = useColorMode();
 
   return (
