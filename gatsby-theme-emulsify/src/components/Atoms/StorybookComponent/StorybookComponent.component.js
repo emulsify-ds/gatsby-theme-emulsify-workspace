@@ -24,7 +24,7 @@ const StorybookComponent = ({ id, height, data }) => {
             border: theme => `1px solid ${theme.colors.highlight}`,
             display: "block",
             margin: 0,
-            minHeight: "150px",
+            minHeight: !height && "150px",
             padding: 2,
             width: "100%"
           }}
