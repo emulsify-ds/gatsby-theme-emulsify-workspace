@@ -24,7 +24,8 @@ export default ({ children, className }) => {
             mb: 8,
             mt: 0,
             py: 8,
-            px: 6
+            px: 6,
+            whiteSpace: "pre-wrap"
           }}
         >
           {tokens.map((line, i) => (
