@@ -1,0 +1,41 @@
+---
+title: "CTA Component"
+description: "Another example component page documenting a Call to Action"
+tab: "Code"
+tabOrder: 1
+publishToStyleGuide: true
+---
+
+## This is a CTA Component
+
+Notice that there are tabs at the top of the component pages. Those are added using a couple of fields in the front matter like so:
+
+```html
+tab: "Code"
+tabOrder: 1
+```
+
+"Tab" is the name of the tab and tabOrder controls where it falls in the order of the tabs.
+
+## CTA Component
+
+<StorybookComponent id="cta--example" height="240px" />
+
+---
+Note: You can lay out components however you like including content around or below them and between your component and code.
+
+## CTA Code
+
+<TabLinks defaultTab="React">
+  <a href="http://example.com/vanillajs">Vanilla JS</a>
+  <a href="http://example.com/angular">Angular</a>
+</TabLinks>
+
+```html
+<Cta
+  heading="This is a Call to Action"
+  content="Click here"
+/>
+```
+
+[Next: Documentation](/resources/documentation/)

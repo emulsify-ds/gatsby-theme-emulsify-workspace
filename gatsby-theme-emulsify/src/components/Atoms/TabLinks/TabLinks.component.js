@@ -32,7 +32,7 @@ const Tabs = ({ children, defaultTab }) => {
         }}
       >
         <li
-          class="default"
+          className="default"
           sx={
             colorMode === "default"
               ? {
