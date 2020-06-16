@@ -76,10 +76,7 @@ export default ({
           <h1
             className="main-title"
             sx={{
-              background: theme =>
-                `linear-gradient(90deg, ${theme.colors.primary} 20px, transparent 1%) center, linear-gradient(${theme.colors.primary} 20px, transparent 1%) center, ${theme.colors.muted}`,
-              backgroundSize: "22px 22px",
-              color: "background",
+              variant: "headings.hero",
               fontSize: 9,
               mb: 0,
               marginTop: 0,

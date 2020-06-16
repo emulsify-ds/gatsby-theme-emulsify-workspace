@@ -60,7 +60,7 @@ export default class ListItem extends Component {
           className="menu-link"
           to={itemLink}
           sx={{
-            color: "menuLink",
+            variant: "listItems.menuLinks",
             fontSize: 1,
             fontWeight: "heading",
             "&:hover": {

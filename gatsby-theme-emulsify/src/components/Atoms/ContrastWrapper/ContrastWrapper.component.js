@@ -5,8 +5,7 @@ import { jsx } from "theme-ui";
 const ContrastWrapper = ({ children }) => (
   <div
     sx={{
-      backgroundColor: "accentWrapperBg",
-      color: "accentWrapper",
+      variant: "wrapper.contrast",
       mx: "calc(50% - 37vw)",
       my: 12,
       py: 12,

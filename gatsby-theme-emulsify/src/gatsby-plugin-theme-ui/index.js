@@ -40,8 +40,6 @@ export default {
     buttonBg: darkGray,
     button: white,
     buttonHover: black,
-    accentWrapperBg: darkGray,
-    accentWrapper: white,
     menuItemBorder: nearWhite,
     menuLink: white,
     tabsBg: gray,
@@ -58,8 +56,6 @@ export default {
         buttonBg: lightGray,
         button: darkGray,
         buttonHover: white,
-        accentWrapperBg: white,
-        accentWrapper: darkGray,
         menuItemBorder: gray,
         menuLink: darkGray,
         tabsBg: lightGray,
@@ -107,6 +103,23 @@ export default {
     },
     menu: {
       // you can reference other values defined in the theme
+      color: "background"
+    }
+  },
+  wrapper: {
+    contrast: {
+      bg: "text",
+      color: "background"
+    }
+  },
+  listItems: {
+    menuLinks: {
+      color: "background"
+    }
+  },
+  headings: {
+    hero: {
+      bg: "text",
       color: "background"
     }
   },
