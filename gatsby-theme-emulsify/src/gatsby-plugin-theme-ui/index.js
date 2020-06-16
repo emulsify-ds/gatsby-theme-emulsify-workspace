@@ -28,6 +28,7 @@ export default {
     "56": "14rem",
     "64": "16rem"
   },
+  useColorSchemeMediaQuery: true,
   colors: {
     text: darkGray,
     background: white,
@@ -43,6 +44,8 @@ export default {
     accentWrapper: white,
     menuItemBorder: nearWhite,
     menuLink: white,
+    tabsBg: gray,
+    tabsItemBg: "#2a2734",
     modes: {
       dark: {
         text: white,
@@ -58,7 +61,9 @@ export default {
         accentWrapperBg: white,
         accentWrapper: darkGray,
         menuItemBorder: gray,
-        menuLink: darkGray
+        menuLink: darkGray,
+        tabsBg: lightGray,
+        tabsItemBg: "#faf8f5"
       }
     }
   },
@@ -91,6 +96,20 @@ export default {
     heading: 1.7
   },
   radii: ["2px", "3px"],
+  buttons: {
+    primary: {
+      bg: "text",
+      color: "background"
+    },
+    secondary: {
+      bg: "background",
+      color: "text"
+    },
+    menu: {
+      // you can reference other values defined in the theme
+      color: "background"
+    }
+  },
   styles: {
     root: {
       fontFamily: "body",

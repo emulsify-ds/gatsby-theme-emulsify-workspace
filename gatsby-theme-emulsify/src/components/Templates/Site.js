@@ -1,7 +1,7 @@
 import React from "react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 /** @jsx jsx */
-import { Flex, jsx, useColorMode } from "theme-ui";
+import { Flex, jsx, useColorMode, Button } from "theme-ui";
 
 import Sidebar from "../Organisms/Sidebar/Sidebar.component";
 import Tabs from "../Organisms/Tabs/Tabs.component";
@@ -55,17 +55,16 @@ export default ({
             flexBasis: [null, "80%", null]
           }}
         >
-          <button
+          <Button
             onClick={e => {
               setColorMode(colorMode === "default" ? "dark" : "default");
             }}
+            variant="secondary"
             sx={{
               cursor: "pointer",
-              display: "block",
               position: "fixed",
               top: 4,
-              right: 4,
-              border: "none",
+              right: [16, 4],
               borderRadius: "2px",
               padding: 2,
               fontSize: 0,
@@ -73,7 +72,7 @@ export default ({
             }}
           >
             {colorMode === "default" ? "Dark" : "Light"}
-          </button>
+          </Button>
           <h1
             className="main-title"
             sx={{
