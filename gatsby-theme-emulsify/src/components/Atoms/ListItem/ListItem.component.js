@@ -46,7 +46,7 @@ export default class ListItem extends Component {
           mb: 0,
           pb: 0,
           "&.menu-item--child--active::before": {
-            border: theme => `5px solid ${theme.colors.highlight}`,
+            border: theme => `5px solid ${theme.colors.menuItemBorder}`,
             borderBottomColor: "transparent",
             borderRightColor: "transparent",
             borderTopColor: "transparent",
@@ -60,7 +60,7 @@ export default class ListItem extends Component {
           className="menu-link"
           to={itemLink}
           sx={{
-            color: "background",
+            color: "menuLink",
             fontSize: 1,
             fontWeight: "heading",
             "&:hover": {

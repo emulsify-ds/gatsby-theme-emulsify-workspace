@@ -1,3 +1,10 @@
+const white = "#fff";
+const nearWhite = "#e2ebf2";
+const lightGray = "#889096";
+const gray = "#6E7479";
+const darkGray = "#313436";
+const black = "#000";
+
 // example theme file
 export default {
   breakpoints: ["480px", "768px", "1024px"],
@@ -22,22 +29,36 @@ export default {
     "64": "16rem"
   },
   colors: {
-    text: "#313436",
-    background: "#fff",
-    primary: "#313436",
-    secondary: "#000",
-    accent: "#6E7479",
-    highlight: "#E2EBF2",
-    muted: "#889096",
+    text: darkGray,
+    background: white,
+    primary: darkGray,
+    secondary: black,
+    accent: gray,
+    highlight: nearWhite,
+    muted: lightGray,
+    buttonBg: darkGray,
+    button: white,
+    buttonHover: black,
+    accentWrapperBg: darkGray,
+    accentWrapper: white,
+    menuItemBorder: nearWhite,
+    menuLink: white,
     modes: {
       dark: {
-        text: "#fff",
-        background: "#313436",
-        primary: "#889096",
-        secondary: "#fff",
-        accent: "#889096",
-        highlight: "#6E7479",
-        muted: "#313436"
+        text: white,
+        background: darkGray,
+        primary: lightGray,
+        secondary: white,
+        accent: lightGray,
+        highlight: gray,
+        muted: darkGray,
+        buttonBg: lightGray,
+        button: darkGray,
+        buttonHover: white,
+        accentWrapperBg: white,
+        accentWrapper: darkGray,
+        menuItemBorder: gray,
+        menuLink: darkGray
       }
     }
   },

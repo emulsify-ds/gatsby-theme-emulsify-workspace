@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 
-const DarkWrapper = ({ children }) => (
+const ContrastWrapper = ({ children }) => (
   <div
     sx={{
-      backgroundColor: "text",
-      color: "background",
+      backgroundColor: "accentWrapperBg",
+      color: "accentWrapper",
       mx: "calc(50% - 37vw)",
       my: 12,
       py: 12,
@@ -17,12 +17,12 @@ const DarkWrapper = ({ children }) => (
   </div>
 );
 
-DarkWrapper.propTypes = {
+ContrastWrapper.propTypes = {
   children: PropTypes.node
 };
 
-DarkWrapper.defaultProps = {
+ContrastWrapper.defaultProps = {
   children: null
 };
 
-export default DarkWrapper;
+export default ContrastWrapper;
