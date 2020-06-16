@@ -37,11 +37,7 @@ export default {
     accent: gray,
     highlight: nearWhite,
     muted: lightGray,
-    buttonBg: darkGray,
-    button: white,
-    buttonHover: black,
     menuItemBorder: nearWhite,
-    menuLink: white,
     tabsBg: gray,
     tabsItemBg: "#2a2734",
     modes: {
@@ -53,11 +49,7 @@ export default {
         accent: lightGray,
         highlight: gray,
         muted: darkGray,
-        buttonBg: lightGray,
-        button: darkGray,
-        buttonHover: white,
         menuItemBorder: gray,
-        menuLink: darkGray,
         tabsBg: lightGray,
         tabsItemBg: "#faf8f5"
       }
