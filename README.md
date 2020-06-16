@@ -96,7 +96,7 @@ You can also show component code in your MDX files using the traditional backtic
 
 #### Other MDX shortcodes available:
 
-`<ContrastWrapper>`: Wraps the contents of this component in a "dark" wrapper (opposite of background color). Usage:
+`<ContrastWrapper>`: Wraps the contents of this component in a contrasted wrapper (opposite of background color). Usage:
 
 ```
 <ContrastWrapper>
