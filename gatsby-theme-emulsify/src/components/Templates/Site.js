@@ -64,7 +64,7 @@ export default ({
               cursor: "pointer",
               position: "fixed",
               top: 4,
-              right: [16, 4],
+              right: [16, 16, 4],
               borderRadius: "2px",
               padding: 2,
               fontSize: 0,

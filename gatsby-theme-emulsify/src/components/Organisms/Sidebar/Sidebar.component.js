@@ -157,6 +157,7 @@ class Sidebar extends Component {
                 className="sidebar__toggle"
                 onClick={this.toggleSidebar}
                 sx={{
+                  display: ["block", "block", "none"],
                   marginTop: "0.5rem",
                   "> svg": {
                     height: "2rem",
