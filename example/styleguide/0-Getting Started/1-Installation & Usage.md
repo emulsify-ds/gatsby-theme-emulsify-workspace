@@ -36,13 +36,15 @@ If you'd like to display isolated components in your style guide, there is built
 "build": "npm run build-storybook && gatsby build",
 ```
 
-Now, when running `yarn develop`, you will be building your Storybook instance to Gatsby's static directory as a part of your Gatsby workflow. 
+Now, when running `yarn develop`, you will be building your Storybook instance to Gatsby's static directory as a part of your Gatsby workflow.
 
 #### Displaying Components - MDX
 
 Now, you can go to the MDX file where you'd like to display your component and use the following MDX shortcode:
 
-`<StorybookComponent id="button--emoji" />`
+```html
+<StorybookComponent id="button--emoji" />
+```
 
 The `id` for your component is the ID that Storybook uses to identify the component in their iframe, which is `COMPONENT_DIRECTORY--COMPONTENT_NAME` (you can find this in the Storybook URL). Now you will see your component shown in your documentation. See the `example` components directory for usage ideas. Also, there is a height prop that you can configure to increase the height of the iframe (e.g., `<StorybookComponent id="button--emoji" height="100px" />`).
 
