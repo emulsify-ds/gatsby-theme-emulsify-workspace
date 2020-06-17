@@ -12,10 +12,10 @@ import "./layout.css";
 import TableOfContents from "../Molecules/TableOfContents/TableOfContents.component";
 import StorybookComponent from "../Atoms/StorybookComponent/StorybookComponent.component";
 import CodeBlock from "../Atoms/CodeBlock/CodeBlock.component";
-import DarkWrapper from "../Atoms/DarkWrapper/DarkWrapper.component";
+import ContrastWrapper from "../Atoms/ContrastWrapper/ContrastWrapper.component";
 import TabLinks from "../Atoms/TabLinks/TabLinks.component";
 
-export default props => {
+export default (props) => {
   const { pageContext } = props;
   const post = props.data.mdx;
 
@@ -27,11 +27,11 @@ export default props => {
     TableOfContents: () => (
       <TableOfContents items={post.tableOfContents.items} />
     ),
-    pre: props => <div {...props} />,
+    pre: (props) => <div {...props} />,
     StorybookComponent,
     code: CodeBlock,
-    DarkWrapper,
-    TabLinks
+    ContrastWrapper,
+    TabLinks,
   });
   const site = props.data.site;
   const docPages = props.data.allMdx.edges;

@@ -1,7 +1,7 @@
 import React from "react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 /** @jsx jsx */
-import { Flex, jsx, useColorMode } from "theme-ui";
+import { Flex, jsx, useColorMode, Button } from "theme-ui";
 
 import Sidebar from "../Organisms/Sidebar/Sidebar.component";
 import Tabs from "../Organisms/Tabs/Tabs.component";
@@ -18,23 +18,23 @@ export default ({
   id,
   menu,
   parentDirectory,
-  collection
+  collection,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [colorMode, setColorMode] = useColorMode();
 
   const toggleOpen = () => {
-    setIsMenuOpen(prevState => !prevState);
+    setIsMenuOpen((prevState) => !prevState);
   };
 
   let tabs = docPages
     .filter(
-      docPage =>
+      (docPage) =>
         docPage.node.fields &&
         docPage.node.fields.parentDir === parentDirectory &&
         docPage.node.frontmatter.tab
     )
-    .sort(function(a, b) {
+    .sort(function (a, b) {
       return a.node.frontmatter.tabOrder - b.node.frontmatter.tabOrder;
     });
   return (
@@ -52,41 +52,37 @@ export default ({
         <Flex
           className="main-content"
           sx={{
-            flexBasis: [null, "80%", null]
+            flexBasis: [null, "80%", null],
           }}
         >
-          <button
-            onClick={e => {
+          <Button
+            onClick={(e) => {
               setColorMode(colorMode === "default" ? "dark" : "default");
             }}
+            variant="secondary"
             sx={{
               cursor: "pointer",
-              display: "block",
               position: "fixed",
               top: 4,
-              right: 4,
-              border: "none",
+              right: [16, 16, 4],
               borderRadius: "2px",
               padding: 2,
               fontSize: 0,
-              zIndex: 10
+              zIndex: 10,
             }}
           >
             {colorMode === "default" ? "Dark" : "Light"}
-          </button>
+          </Button>
           <h1
             className="main-title"
             sx={{
-              background: theme =>
-                `linear-gradient(90deg, ${theme.colors.primary} 20px, transparent 1%) center, linear-gradient(${theme.colors.primary} 20px, transparent 1%) center, ${theme.colors.muted}`,
-              backgroundSize: "22px 22px",
-              color: "background",
+              variant: "headings.hero",
               fontSize: 9,
               mb: 0,
               marginTop: 0,
               px: [4, null, 16],
               py: [8, null, 48],
-              pb: [8, null, 8]
+              pb: [8, null, 8],
             }}
           >
             {pageTitle}
@@ -98,8 +94,8 @@ export default ({
               px: [4, null, 16],
               py: 12,
               "& h1": {
-                fontSize: 5
-              }
+                fontSize: 5,
+              },
             }}
           >
             <MDXRenderer>{body}</MDXRenderer>

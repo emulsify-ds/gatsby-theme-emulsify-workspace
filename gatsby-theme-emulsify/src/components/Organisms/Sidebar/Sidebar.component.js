@@ -1,13 +1,12 @@
 import PropTypes from "prop-types";
 import { Component } from "react";
 /** @jsx jsx */
-import { jsx, useColorMode } from "theme-ui";
+import { jsx, useColorMode, MenuButton, Close } from "theme-ui";
 
 import "./sidebar.css";
 
 import CloseIcon from "../../../../assets/close.svg";
 import DownIcon from "../../../../assets/down.svg";
-import MenuIcon from "../../../../assets/menu-bars.svg";
 import MainMenu from "../../Molecules/Menus/MainMenu.component";
 
 const Link = process.env.STORYBOOK_ENV
@@ -152,16 +151,35 @@ class Sidebar extends Component {
                 {siteTitle}
               </Link>
             </h1>
-            <MenuIcon
-              className="sidebar__toggle"
-              onClick={this.toggleSidebar}
-              aria-label="Toggle Sidebar Menu"
-              sx={{
-                fill: "background",
-                height: "2rem",
-                paddingLeft: 4
-              }}
-            />
+            {!this.state.isSidebarOpen && (
+              <MenuButton
+                aria-label="Open Sidebar Menu"
+                className="sidebar__toggle"
+                onClick={this.toggleSidebar}
+                sx={{
+                  display: ["block", "block", "none"],
+                  marginTop: "0.5rem",
+                  "> svg": {
+                    height: "2rem",
+                    width: "2rem"
+                  }
+                }}
+              />
+            )}
+            {this.state.isSidebarOpen && (
+              <Close
+                aria-label="Close Sidebar Menu"
+                className="sidebar__toggle"
+                onClick={this.toggleSidebar}
+                sx={{
+                  marginTop: "0.5rem",
+                  "> svg": {
+                    height: "2rem",
+                    width: "2rem"
+                  }
+                }}
+              />
+            )}
           </div>
           <nav
             className={

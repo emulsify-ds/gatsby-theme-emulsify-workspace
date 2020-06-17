@@ -17,15 +17,10 @@ import ExternalIcon from "./ExternalIcon.js";
 const Tabs = ({ children, defaultTab }) => {
   const [colorMode] = useColorMode();
   return (
-    <nav
-      sx={{
-        borderBottom: theme => `2px solid ${theme.colors.grayDark}`
-      }}
-    >
+    <nav>
       <ol
         sx={{
-          backgroundColor: "accent",
-          color: "text",
+          backgroundColor: "gray",
           margin: 0,
           listStyle: "none",
           fontSize: 0
@@ -36,7 +31,7 @@ const Tabs = ({ children, defaultTab }) => {
           sx={
             colorMode === "default"
               ? {
-                  backgroundColor: "rgb(42, 39, 52)",
+                  backgroundColor: "tabsItemBg",
                   color: "background",
                   display: "inline-block",
                   margin: 0,
@@ -44,7 +39,7 @@ const Tabs = ({ children, defaultTab }) => {
                   py: 3
                 }
               : {
-                  backgroundColor: "rgb(250, 248, 245)",
+                  backgroundColor: "tabsItemBg",
                   color: "background",
                   display: "inline-block",
                   margin: 0,

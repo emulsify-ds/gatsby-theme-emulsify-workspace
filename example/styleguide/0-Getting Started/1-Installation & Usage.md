@@ -36,13 +36,15 @@ If you'd like to display isolated components in your style guide, there is built
 "build": "npm run build-storybook && gatsby build",
 ```
 
-Now, when running `yarn develop`, you will be building your Storybook instance to Gatsby's static directory as a part of your Gatsby workflow. 
+Now, when running `yarn develop`, you will be building your Storybook instance to Gatsby's static directory as a part of your Gatsby workflow.
 
 #### Displaying Components - MDX
 
 Now, you can go to the MDX file where you'd like to display your component and use the following MDX shortcode:
 
-`<StorybookComponent id="button--emoji" />`
+```
+<StorybookComponent id="button--emoji" />
+```
 
 The `id` for your component is the ID that Storybook uses to identify the component in their iframe, which is `COMPONENT_DIRECTORY--COMPONTENT_NAME` (you can find this in the Storybook URL). Now you will see your component shown in your documentation. See the `example` components directory for usage ideas. Also, there is a height prop that you can configure to increase the height of the iframe (e.g., `<StorybookComponent id="button--emoji" height="100px" />`).
 
@@ -50,8 +52,8 @@ The `id` for your component is the ID that Storybook uses to identify the compon
 
 You can also show component code in your MDX files using the traditional backtick syntax (uses [PRISMJS](https://github.com/PrismJS/prism) and [Prism React Rendered](https://github.com/FormidableLabs/prism-react-renderer)) like so:
 
-```html
-```html
+```
+```(specify language, defaults to html)
 <div class="cta">
   <h2>This is a call to action</h2>
   <Button>Click here</Button>
@@ -60,12 +62,12 @@ You can also show component code in your MDX files using the traditional backtic
 
 #### Other MDX shortcodes available:
 
-`<DarkWrapper>`: Wraps the contents of this component in a "dark" wrapper (opposite of background color). Usage:
+`<ContrastWrapper>`: Wraps the contents of this component in a contrasted wrapper (opposite of background color). Usage:
 
 ```html
-<DarkWrapper>
+<ContrastWrapper>
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-</DarkWrapper>
+</ContrastWrapper>
 ```
 
 #### Images and files

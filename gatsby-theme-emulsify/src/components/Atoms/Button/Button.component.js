@@ -18,10 +18,9 @@ const Button = props => {
       className="btn"
       onClick={onClick}
       sx={{
-        backgroundColor: "primary",
+        variable: "button.primary",
         border: "none",
         borderRadius: "0.15rem",
-        color: "background",
         cursor: "pointer",
         display: "inline-block",
         fontSize: 2,
@@ -32,10 +31,7 @@ const Button = props => {
         textAlign: "center",
         textDecoration: "none",
         textTransform: "uppercase",
-        transition: "all 0.1s ease-in-out",
-        "&:hover": {
-          backgroundColor: "secondary"
-        }
+        transition: "all 0.1s ease-in-out"
       }}
     >
       {children}
