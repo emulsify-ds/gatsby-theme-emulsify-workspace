@@ -9,7 +9,7 @@ const ContrastWrapper = ({ children }) => (
       mx: "calc(50% - 37vw)",
       my: 12,
       py: 12,
-      px: 16
+      px: 16,
     }}
   >
     {children}
@@ -17,11 +17,11 @@ const ContrastWrapper = ({ children }) => (
 );
 
 ContrastWrapper.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 ContrastWrapper.defaultProps = {
-  children: null
+  children: null,
 };
 
 export default ContrastWrapper;

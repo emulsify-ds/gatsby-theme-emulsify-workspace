@@ -26,7 +26,7 @@ export default {
     "40": "10rem",
     "48": "12rem",
     "56": "14rem",
-    "64": "16rem"
+    "64": "16rem",
   },
   useColorSchemeMediaQuery: true,
   colors: {
@@ -51,9 +51,9 @@ export default {
         muted: darkGray,
         menuItemBorder: gray,
         tabsBg: lightGray,
-        tabsItemBg: "#faf8f5"
-      }
-    }
+        tabsItemBg: "#faf8f5",
+      },
+    },
   },
   fonts: {
     body:
@@ -61,7 +61,7 @@ export default {
     heading:
       "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
     code:
-      "'SFMono-Regular', Consolas, 'Roboto Mono', 'Droid Sans Mono', 'Liberation Mono', Menlo, Courier, monospace"
+      "'SFMono-Regular', Consolas, 'Roboto Mono', 'Droid Sans Mono', 'Liberation Mono', Menlo, Courier, monospace",
   },
   fontSizes: [
     "0.8rem",
@@ -73,89 +73,89 @@ export default {
     "2rem",
     "2.25rem",
     "2.5rem",
-    "2.75rem"
+    "2.75rem",
   ],
   fontWeights: {
     body: 400,
-    heading: 700
+    heading: 700,
   },
   lineHeights: {
     body: 1.5,
-    heading: 1.7
+    heading: 1.7,
   },
   radii: ["2px", "3px"],
   buttons: {
     primary: {
       bg: "text",
-      color: "background"
+      color: "background",
     },
     secondary: {
       bg: "background",
-      color: "text"
+      color: "text",
     },
     menu: {
       // you can reference other values defined in the theme
-      color: "background"
-    }
+      color: "background",
+    },
   },
   wrapper: {
     contrast: {
       bg: "text",
-      color: "background"
-    }
+      color: "background",
+    },
   },
   listItems: {
     menuLinks: {
-      color: "background"
-    }
+      color: "background",
+    },
   },
   headings: {
     hero: {
       bg: "text",
-      color: "background"
-    }
+      color: "background",
+    },
   },
   styles: {
     root: {
       fontFamily: "body",
       fontSize: "17px",
       fontWeight: "body",
-      lineHeight: "body"
+      lineHeight: "body",
     },
     "h1, h2, h3, h4, h5, h6": {
       fontFamily: "heading",
       fontWeight: "heading",
       m: "0 0 1.45rem 0",
-      textRendering: "optimizeLegibility"
+      textRendering: "optimizeLegibility",
     },
     h1: {
-      fontSize: 8
+      fontSize: 8,
     },
     h2: {
-      fontSize: 7
+      fontSize: 7,
     },
     h3: {
-      fontSize: 6
+      fontSize: 6,
     },
     h4: {
-      fontSize: 5
+      fontSize: 5,
     },
     h5: {
-      fontSize: 4
+      fontSize: 4,
     },
     h6: {
-      fontSize: 3
+      fontSize: 3,
     },
     a: {
       color: "primary",
       ":hover, :active": {
-        color: "secondary"
-      }
+        color: "secondary",
+      },
     },
     pre: {
       backgroundColor: "text",
       padding: 4,
-      my: 2
-    }
-  }
+      my: 2,
+    },
+  },
 };
