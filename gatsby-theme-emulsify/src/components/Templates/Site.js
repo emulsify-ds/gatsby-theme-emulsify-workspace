@@ -18,23 +18,23 @@ export default ({
   id,
   menu,
   parentDirectory,
-  collection
+  collection,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [colorMode, setColorMode] = useColorMode();
 
   const toggleOpen = () => {
-    setIsMenuOpen(prevState => !prevState);
+    setIsMenuOpen((prevState) => !prevState);
   };
 
   let tabs = docPages
     .filter(
-      docPage =>
+      (docPage) =>
         docPage.node.fields &&
         docPage.node.fields.parentDir === parentDirectory &&
         docPage.node.frontmatter.tab
     )
-    .sort(function(a, b) {
+    .sort(function (a, b) {
       return a.node.frontmatter.tabOrder - b.node.frontmatter.tabOrder;
     });
   return (
@@ -52,11 +52,11 @@ export default ({
         <Flex
           className="main-content"
           sx={{
-            flexBasis: [null, "80%", null]
+            flexBasis: [null, "80%", null],
           }}
         >
           <Button
-            onClick={e => {
+            onClick={(e) => {
               setColorMode(colorMode === "default" ? "dark" : "default");
             }}
             variant="secondary"
@@ -68,7 +68,7 @@ export default ({
               borderRadius: "2px",
               padding: 2,
               fontSize: 0,
-              zIndex: 10
+              zIndex: 10,
             }}
           >
             {colorMode === "default" ? "Dark" : "Light"}
@@ -82,7 +82,7 @@ export default ({
               marginTop: 0,
               px: [4, null, 16],
               py: [8, null, 48],
-              pb: [8, null, 8]
+              pb: [8, null, 8],
             }}
           >
             {pageTitle}
@@ -94,8 +94,8 @@ export default ({
               px: [4, null, 16],
               py: 12,
               "& h1": {
-                fontSize: 5
-              }
+                fontSize: 5,
+              },
             }}
           >
             <MDXRenderer>{body}</MDXRenderer>
