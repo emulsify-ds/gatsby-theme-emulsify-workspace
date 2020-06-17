@@ -42,7 +42,7 @@ Now, when running `yarn develop`, you will be building your Storybook instance t
 
 Now, you can go to the MDX file where you'd like to display your component and use the following MDX shortcode:
 
-```html
+```
 <StorybookComponent id="button--emoji" />
 ```
 
@@ -52,8 +52,8 @@ The `id` for your component is the ID that Storybook uses to identify the compon
 
 You can also show component code in your MDX files using the traditional backtick syntax (uses [PRISMJS](https://github.com/PrismJS/prism) and [Prism React Rendered](https://github.com/FormidableLabs/prism-react-renderer)) like so:
 
-```html
-```html
+```
+```(specify language, defaults to html)
 <div class="cta">
   <h2>This is a call to action</h2>
   <Button>Click here</Button>
