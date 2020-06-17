@@ -15,18 +15,14 @@ const StorybookComponent = ({ id, height, data }) => {
           }
         }
       `}
-      render={data => (
+      render={(data) => (
         <iframe
           style={{
-            height
+            height,
           }}
           sx={{
-            border: theme => `1px solid ${theme.colors.highlight}`,
-            display: "block",
-            margin: 0,
+            variant: "storybook",
             minHeight: !height && "150px",
-            padding: 2,
-            width: "100%"
           }}
           title={`storybook-component-${id}`}
           src={`${data.site.siteMetadata.UILibPath}?id=${id}`}
@@ -39,13 +35,13 @@ const StorybookComponent = ({ id, height, data }) => {
 StorybookComponent.propTypes = {
   id: PropTypes.string,
   height: PropTypes.string,
-  width: PropTypes.string
+  width: PropTypes.string,
 };
 
 StorybookComponent.defaultProps = {
   id: "",
   height: "auto",
-  width: "auto"
+  width: "auto",
 };
 
 export default StorybookComponent;

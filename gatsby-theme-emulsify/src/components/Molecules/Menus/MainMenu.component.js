@@ -15,7 +15,7 @@ import MenuComponent from "./MenuComponent.component";
 export default class MainMenu extends Component {
   state = { activeIndex: null };
 
-  toggle = index => {
+  toggle = (index) => {
     if (this.state.activeIndex !== index) {
       this.setState({ activeIndex: index });
     } else {
@@ -30,7 +30,7 @@ export default class MainMenu extends Component {
     const directoryTree = {};
     directoryTree.children = [];
 
-    menuItems.forEach(item => {
+    menuItems.forEach((item) => {
       // Filter by filter prop.
       if (item.sourceInstanceName === filter) {
         // Not the following pages.
@@ -41,14 +41,14 @@ export default class MainMenu extends Component {
             directoryTree.children.push({
               parent: itemDir,
               item: item,
-              active: item.childMdx.id === id ? true : false
+              active: item.childMdx.id === id ? true : false,
             });
           }
         }
       }
     });
 
-    directoryTree.children.sort(function(a, b) {
+    directoryTree.children.sort(function (a, b) {
       if (a.parent[0] < b.parent[0]) {
         return -1;
       }
@@ -62,24 +62,24 @@ export default class MainMenu extends Component {
       const parentItem = acc[item.parent] || [];
       return {
         ...acc,
-        [item.parent]: [...parentItem, item.item]
+        [item.parent]: [...parentItem, item.item],
       };
     }, {});
 
-    const isComponentsMenu = name => name === "Components";
+    const isComponentsMenu = (name) => name === "Components";
 
     return (
       <ul
         className="main-menu"
         sx={{
-          fontSize: 1
+          variant: "menus.main.list",
         }}
       >
         {Object.keys(groupedMenuItems).map((parentKey, parentIndex) => {
           const parentName = parentKey.split("-").pop();
           const parentNameSplit = parentName.split("_").pop();
           let activeItem = false;
-          groupedMenuItems[parentKey].forEach(item => {
+          groupedMenuItems[parentKey].forEach((item) => {
             if (item.childMdx.id === id) {
               activeItem = true;
             }
@@ -98,11 +98,7 @@ export default class MainMenu extends Component {
               onClick={this.toggle.bind(this, parentIndex)}
               onKeyDown={this.toggle.bind(this, parentIndex)}
               sx={{
-                borderBottom: "1px solid rgba(255, 255, 255, 0.4)",
-                fontSize: "1.1rem",
-                fontWeight: "heading",
-                mb: 1,
-                pb: 1
+                variant: "menus.main.listItem",
               }}
             >
               <span>
@@ -111,20 +107,14 @@ export default class MainMenu extends Component {
                   className="menu-icon menu-icon--down"
                   aria-label="Toggle Open"
                   sx={{
-                    fill: "highlight",
-                    height: "20px",
-                    top: "7px",
-                    width: "20px"
+                    variant: "menus.main.downIcon",
                   }}
                 />
                 <UpIcon
                   className="menu-icon menu-icon--up"
                   aria-label="Toggle Closed"
                   sx={{
-                    fill: "highlight",
-                    height: "20px",
-                    top: "7px",
-                    width: "20px"
+                    variant: "menus.main.upIcon",
                   }}
                 />
               </span>

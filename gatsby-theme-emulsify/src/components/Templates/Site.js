@@ -52,7 +52,7 @@ export default ({
         <Flex
           className="main-content"
           sx={{
-            flexBasis: [null, "80%", null],
+            variant: "layout.main",
           }}
         >
           <Button
@@ -77,12 +77,6 @@ export default ({
             className="main-title"
             sx={{
               variant: "headings.hero",
-              fontSize: 9,
-              mb: 0,
-              marginTop: 0,
-              px: [4, null, 16],
-              py: [8, null, 48],
-              pb: [8, null, 8],
             }}
           >
             {pageTitle}
@@ -91,8 +85,7 @@ export default ({
           <div
             className="main-content-content"
             sx={{
-              px: [4, null, 16],
-              py: 12,
+              variant: "layout.mainContent",
             }}
           >
             <MDXRenderer>{body}</MDXRenderer>

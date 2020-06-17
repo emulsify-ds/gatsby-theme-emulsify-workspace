@@ -8,33 +8,17 @@ export default ({ tabs, id }) => (
   <nav
     className="tabs"
     sx={{
-      backgroundColor: "accent",
-      px: [4, null, 16],
-      py: 4,
-      pb: 0
+      variant: "tabs.nav",
     }}
   >
     <ul>
-      {tabs.map(tab => (
+      {tabs.map((tab) => (
         <li key={tab.node.id}>
           <Link
             to={tab.node.fields.slug}
             className={tab.node.id === id ? "active" : ""}
             sx={{
-              color: "background",
-              borderTopLeftRadius: 0,
-              borderTopRightRadius: 0,
-              fontWeight: "heading",
-              marginRight: 2,
-              px: 4,
-              py: 2,
-              ":hover": {
-                backgroundColor: "muted"
-              },
-              "&.active": {
-                backgroundColor: "background",
-                color: "accent"
-              }
+              variant: "tabs.link",
             }}
           >
             {tab.node.frontmatter.tab}

@@ -20,10 +20,7 @@ const Tabs = ({ children, defaultTab }) => {
     <nav>
       <ol
         sx={{
-          backgroundColor: "gray",
-          margin: 0,
-          listStyle: "none",
-          fontSize: 0
+          variant: "tabLinks.list",
         }}
       >
         <li
@@ -31,55 +28,29 @@ const Tabs = ({ children, defaultTab }) => {
           sx={
             colorMode === "default"
               ? {
-                  backgroundColor: "tabsItemBg",
-                  color: "background",
-                  display: "inline-block",
-                  margin: 0,
-                  px: 4,
-                  py: 3
+                  variant: "tabLinks.defaultListItem.light",
                 }
               : {
-                  backgroundColor: "tabsItemBg",
-                  color: "background",
-                  display: "inline-block",
-                  margin: 0,
-                  px: 4,
-                  py: 3
+                  variant: "tabLinks.defaultListItem.dark",
                 }
           }
         >
           {defaultTab}
         </li>
-        {React.Children.map(children, link => (
+        {React.Children.map(children, (link) => (
           <li
             sx={{
-              display: "inline-block",
-              margin: 0,
-              padding: 3,
-              pl: 3,
-              "&:hover svg": {
-                opacity: 1
-              }
+              variant: "tabLinks.listItem",
             }}
           >
             <span
               sx={
                 colorMode === "default"
                   ? {
-                      a: {
-                        color: "background",
-                        "&:hover": {
-                          color: "background"
-                        }
-                      }
+                      variant: "tabLinks.links.light",
                     }
                   : {
-                      a: {
-                        color: "text",
-                        "&:hover": {
-                          color: "text"
-                        }
-                      }
+                      variant: "tabLinks.links.dark",
                     }
               }
             >
@@ -94,11 +65,11 @@ const Tabs = ({ children, defaultTab }) => {
 };
 
 Tabs.propTypes = {
-  defaultTab: PropTypes.string
+  defaultTab: PropTypes.string,
 };
 
 Tabs.defaultProps = {
-  defaultTab: "Vanilla JS"
+  defaultTab: "Vanilla JS",
 };
 
 export default Tabs;

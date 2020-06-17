@@ -6,10 +6,6 @@ const ContrastWrapper = ({ children }) => (
   <div
     sx={{
       variant: "wrapper.contrast",
-      mx: "calc(50% - 37vw)",
-      my: 12,
-      py: 12,
-      px: 16,
     }}
   >
     {children}

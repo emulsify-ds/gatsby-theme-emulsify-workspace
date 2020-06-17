@@ -14,7 +14,7 @@ export default class MenuComponent extends Component {
     const directoryTree = {};
     directoryTree.children = [];
 
-    menu.forEach(item => {
+    menu.forEach((item) => {
       let isActive = false;
       // Only add one Components subitem to menu - should be refactored later.
       if (item.name === "Code") {
@@ -23,7 +23,7 @@ export default class MenuComponent extends Component {
         if (!isActive) {
           // Also mark the item active if the current page id corresponds to a menu item that shares a prefix with the Code item (sibling).
           let prefix = item.childMdx.fields.slug.replace("code/", "");
-          let siblings = menu.filter(menuitem =>
+          let siblings = menu.filter((menuitem) =>
             menuitem.childMdx
               ? menuitem.childMdx.id === id &&
                 menuitem.childMdx.fields.slug.startsWith(prefix)
@@ -33,7 +33,7 @@ export default class MenuComponent extends Component {
         }
         directoryTree.children.push({
           item: item,
-          active: isActive
+          active: isActive,
         });
       }
     });
@@ -42,14 +42,14 @@ export default class MenuComponent extends Component {
       <ul
         className="menu-child"
         sx={{
-          margin: theme => `0 0 0 ${theme.space[4]}`,
+          margin: (theme) => `0 0 0 ${theme.space[4]}`,
           "& .menu-link": {
             fontSize: 0,
-            textTransform: "uppercase"
-          }
+            textTransform: "uppercase",
+          },
         }}
       >
-        {directoryTree.children.map(function(item, i) {
+        {directoryTree.children.map(function (item, i) {
           return (
             <ListItem
               active={item.active}
@@ -59,7 +59,7 @@ export default class MenuComponent extends Component {
               itemLink={item.item.childMdx.fields.slug}
               icon
               sx={{
-                fontSize: 1
+                fontSize: 1,
               }}
             />
           );

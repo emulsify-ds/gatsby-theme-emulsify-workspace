@@ -5,7 +5,6 @@ import { jsx, useColorMode, MenuButton, Close } from "theme-ui";
 
 import "./sidebar.css";
 
-import CloseIcon from "../../../../assets/close.svg";
 import DownIcon from "../../../../assets/down.svg";
 import MainMenu from "../../Molecules/Menus/MainMenu.component";
 
@@ -25,18 +24,18 @@ function withColorValue(Component) {
  */
 class Sidebar extends Component {
   static propTypes = {
-    siteTitle: PropTypes.string
+    siteTitle: PropTypes.string,
   };
 
   static defaultProps = {
-    siteTitle: ``
+    siteTitle: ``,
   };
 
   state = { isSidebarOpen: false };
 
   toggleSidebar = () => {
-    this.setState(prevState => ({
-      isSidebarOpen: !prevState.isSidebarOpen
+    this.setState((prevState) => ({
+      isSidebarOpen: !prevState.isSidebarOpen,
     }));
   };
 
@@ -51,7 +50,7 @@ class Sidebar extends Component {
       id,
       collection,
       designSystems,
-      colorMode
+      colorMode,
     } = this.props;
     return (
       <div
@@ -59,14 +58,10 @@ class Sidebar extends Component {
         sx={
           colorMode === "default"
             ? {
-                backgroundColor: "muted",
-                color: "background",
-                flex: "0 1 33%"
+                variant: "layout.sidebar.light",
               }
             : {
-                backgroundColor: "secondary",
-                color: "background",
-                flex: "0 1 33%"
+                variant: "layout.sidebar.dark",
               }
         }
       >
@@ -76,33 +71,32 @@ class Sidebar extends Component {
             sx={
               colorMode === "default"
                 ? {
-                    backgroundColor: "primary"
+                    variant: "menus.parent.light",
                   }
                 : {
-                    backgroundColor: "accent"
+                    variant: "menus.parent.dark",
                   }
             }
           >
-            <CloseIcon
+            <Close
               className="parent-menu__toggle parent-menu__toggle--close"
               onClick={this.open}
               aria-label="Toggle Parent Menu"
               sx={{
-                fill: "background",
-                padding: 1
+                variant: "menus.parent.close",
               }}
             />
             <ul
               sx={{
-                px: 4
+                variant: "menus.parent.list",
               }}
             >
-              {designSystems.map(link => (
+              {designSystems.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.link}
                     sx={{
-                      color: "background"
+                      variant: "menus.parent.links",
                     }}
                   >
                     {link.name}
@@ -115,15 +109,13 @@ class Sidebar extends Component {
         <div
           className="sidebar__inner"
           sx={{
-            px: 4
+            variant: "layout.sidebar.inner",
           }}
         >
           <div
             className="sidebar__header"
             sx={{
-              borderBottom: "1px solid rgba(255, 255, 255, 0.4)",
-              pb: 4,
-              marginBottom: [null, null, "3rem"]
+              variant: "layout.sidebar.header",
             }}
           >
             <DownIcon
@@ -131,21 +123,19 @@ class Sidebar extends Component {
               onClick={this.open}
               aria-label="Toggle Parent Menu"
               sx={{
-                fill: "background",
-                padding: 1
+                variant: "layout.sidebar.downIcon",
               }}
             />
             <h1
               className="sidebar__heading"
               sx={{
-                fontSize: 7,
-                margin: ["0 auto 0 0", null, "1rem auto 1rem 0"]
+                variant: "layout.sidebar.heading",
               }}
             >
               <Link
                 to="/"
                 sx={{
-                  color: "background"
+                  variant: "layout.sidebar.homeLink",
                 }}
               >
                 {siteTitle}
@@ -157,12 +147,7 @@ class Sidebar extends Component {
                 className="sidebar__toggle"
                 onClick={this.toggleSidebar}
                 sx={{
-                  display: ["block", "block", "none"],
-                  marginTop: "0.5rem",
-                  "> svg": {
-                    height: "2rem",
-                    width: "2rem"
-                  }
+                  variant: "menus.main.menuButton",
                 }}
               />
             )}
@@ -172,11 +157,7 @@ class Sidebar extends Component {
                 className="sidebar__toggle"
                 onClick={this.toggleSidebar}
                 sx={{
-                  marginTop: "0.5rem",
-                  "> svg": {
-                    height: "2rem",
-                    width: "2rem"
-                  }
+                  variant: "menus.main.closeButton",
                 }}
               />
             )}
@@ -198,9 +179,7 @@ class Sidebar extends Component {
           <footer
             className="sidebar__footer"
             sx={{
-              fontSize: "0.65rem",
-              py: 3,
-              borderTop: [null, null, "1px solid rgba(255, 255, 255, 0.4)"]
+              variant: "layout.sidebar.footer",
             }}
           >
             Design System Powered by{" "}
@@ -209,7 +188,7 @@ class Sidebar extends Component {
               target="_blank"
               rel="noopener noreferrer"
               sx={{
-                color: "background"
+                variant: "layout.sidebar.footerLink",
               }}
             >
               <strong>Emulsify</strong>

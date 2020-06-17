@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 /**
  * Component that renders a button with a click handler.
  */
-const Button = props => {
+const Button = (props) => {
   const { onClick, children } = props;
 
   return (
@@ -19,19 +19,6 @@ const Button = props => {
       onClick={onClick}
       sx={{
         variable: "button.primary",
-        border: "none",
-        borderRadius: "0.15rem",
-        cursor: "pointer",
-        display: "inline-block",
-        fontSize: 2,
-        fontWeight: "heading",
-        lineHeight: "2.25",
-        margin: 0,
-        padding: "1 6",
-        textAlign: "center",
-        textDecoration: "none",
-        textTransform: "uppercase",
-        transition: "all 0.1s ease-in-out"
       }}
     >
       {children}
@@ -41,12 +28,12 @@ const Button = props => {
 
 Button.propTypes = {
   onClick: PropTypes.func,
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 Button.defaultProps = {
   children: null,
-  onClick: () => {}
+  onClick: () => {},
 };
 
 export default Button;
