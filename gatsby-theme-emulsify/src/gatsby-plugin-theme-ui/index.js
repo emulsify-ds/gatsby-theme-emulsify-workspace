@@ -129,22 +129,22 @@ export default {
       textRendering: "optimizeLegibility",
     },
     h1: {
-      fontSize: 8,
-    },
-    h2: {
-      fontSize: 7,
-    },
-    h3: {
       fontSize: 6,
     },
-    h4: {
+    h2: {
       fontSize: 5,
     },
-    h5: {
+    h3: {
       fontSize: 4,
     },
-    h6: {
+    h4: {
       fontSize: 3,
+    },
+    h5: {
+      fontSize: 2,
+    },
+    h6: {
+      fontSize: 1,
     },
     a: {
       color: "primary",

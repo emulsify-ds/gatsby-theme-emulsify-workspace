@@ -93,9 +93,6 @@ export default ({
             sx={{
               px: [4, null, 16],
               py: 12,
-              "& h1": {
-                fontSize: 5,
-              },
             }}
           >
             <MDXRenderer>{body}</MDXRenderer>

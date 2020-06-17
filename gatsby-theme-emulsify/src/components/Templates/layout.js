@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { MDXProvider } from "@mdx-js/react";
 /** @jsx jsx */
-import { jsx, ThemeProvider } from "theme-ui";
-import theme from "../../gatsby-plugin-theme-ui/index";
+import { jsx } from "theme-ui";
 
 import Site from "./Site";
 import SEO from "./seo";
@@ -37,7 +37,7 @@ export default (props) => {
   const docPages = props.data.allMdx.edges;
   const componentNodes = props.data.allFile.nodes;
   return (
-    <ThemeProvider theme={theme} components={components}>
+    <MDXProvider components={components}>
       <Site
         collection={post.fields.collection}
         id={post.id}
@@ -56,7 +56,7 @@ export default (props) => {
         description={post.frontmatter.description || post.excerpt}
         keywords={[`gatsby`, `application`, `react`]}
       />
-    </ThemeProvider>
+    </MDXProvider>
   );
 };
 
