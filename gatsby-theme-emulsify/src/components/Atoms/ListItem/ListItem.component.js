@@ -13,7 +13,7 @@ export default class ListItem extends Component {
     itemName: PropTypes.string,
     itemLink: PropTypes.string,
     children: PropTypes.node,
-    filter: PropTypes.string
+    filter: PropTypes.string,
   };
 
   static defaultProps = {
@@ -21,14 +21,14 @@ export default class ListItem extends Component {
     itemName: null,
     itemLink: null,
     children: [],
-    filter: null
+    filter: null,
   };
 
   state = { toggled: false };
 
   toggle = () => {
-    this.setState(prevState => ({
-      toggled: !prevState.toggled
+    this.setState((prevState) => ({
+      toggled: !prevState.toggled,
     }));
   };
 
@@ -46,14 +46,14 @@ export default class ListItem extends Component {
           mb: 0,
           pb: 0,
           "&.menu-item--child--active::before": {
-            border: theme => `5px solid ${theme.colors.menuItemBorder}`,
+            border: (theme) => `5px solid ${theme.colors.menuItemBorder}`,
             borderBottomColor: "transparent",
             borderRightColor: "transparent",
             borderTopColor: "transparent",
             borderRadius: 0,
             left: "-2px",
-            ml: "-7px"
-          }
+            ml: "-7px",
+          },
         }}
       >
         <Link
@@ -65,8 +65,8 @@ export default class ListItem extends Component {
             fontWeight: "heading",
             "&:hover": {
               opacity: "0.75",
-              textDecoration: "none"
-            }
+              textDecoration: "none",
+            },
           }}
         >
           {listItemContent.title}
