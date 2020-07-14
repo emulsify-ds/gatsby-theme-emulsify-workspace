@@ -14,7 +14,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 <ContrastWrapper>
 
-## Example on a Dark Background
+## Example on a Contrasted Background
 
 Colors Gray Normal            |  Colors Gray Light
 :-------------------------:|:-------------------------:

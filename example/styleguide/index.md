@@ -10,8 +10,7 @@ It can be used to generate a custom style guide powered by <a href="https://gats
 
 ### Quick Links
 
-1. [Overview](/0-getting-started/0-welcome/)
-1. [Installation & Usage](/0-getting-started/1-installation-&-usage/)
+1. [Installation & Usage](/0-getting-started/installation-&-usage/)
 1. [Example Documentation](/1-documentation/colors/)
 1. [Example Component Documentation](/button/code/)
 
