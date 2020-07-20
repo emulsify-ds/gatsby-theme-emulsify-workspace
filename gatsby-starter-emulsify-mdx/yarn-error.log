@@ -1,0 +1,48 @@
+Arguments: 
+  /Users/evan/.nvm/versions/node/v12.10.0/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js develop
+
+PATH: 
+  /Users/evan/.nvm/versions/node/v12.10.0/bin:/Users/evan/.composer/vendor/bin:/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin/
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.10.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/evan/Sites/gatsby/gatsby-theme-emulsify-workspace/gatsby-starter-emulsify-mdx/package.json: Unexpected token } in JSON at position 425
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:310:30)
+      at /usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "mdx-starter",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+      "cross-env": "7.0.2",
+      "gatsby": "^2.23.3",
+      "gatsby-theme-emulsify": "^2.0.0-alpha.30",
+      "react": "^16.13.1",
+      "react-dom": "^16.13.1"
+    },
+    "scripts": {
+      "develop": "gatsby develop",
+      "build": "gatsby build",
+      "deploy-styleguide": "gatsby build --prefix-paths && gh-pages -d public",
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
