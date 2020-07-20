@@ -12,13 +12,13 @@
   },
   "dependencies": {
     "cross-env": "7.0.2",
-    "gatsby": "^2.23.3",
+    "gatsby": "^2.24.7",
     "gatsby-theme-emulsify": "^2.0.0-alpha.30",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.2",
+    "@babel/core": "^7.10.5",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
