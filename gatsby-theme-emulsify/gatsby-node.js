@@ -38,20 +38,20 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     `,
     { limit: 1000 }
-  ).then(result => {
+  ).then((result) => {
     if (result.errors) {
       throw result.errors;
     }
 
-    result.data.allMdx.edges.forEach(edge => {
+    result.data.allMdx.edges.forEach((edge) => {
       createPage({
         path: edge.node.fields.slug,
         component: PageLayout,
         context: {
           slug: edge.node.fields.slug,
           collection: edge.node.fields.collection,
-          parentDir: edge.node.fields.parentDir
-        }
+          parentDir: edge.node.fields.parentDir,
+        },
       });
     });
   });
@@ -63,13 +63,13 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
   if (node.internal.type === `Mdx`) {
     let value = createFilePath({
       node,
-      getNode
+      getNode,
     }).toLowerCase();
     value = value.replace(/\s+/g, "-").toLowerCase();
     createNodeField({
       name: `slug`,
       node,
-      value
+      value,
     });
 
     // For items added to menu, get the parent node.
@@ -80,18 +80,18 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
       createNodeField({
         node,
         name: `sortOrder`,
-        value: value
+        value: value,
       });
       const parent = getNode(_.get(node, "parent"));
       createNodeField({
         node,
         name: "collection",
-        value: _.get(parent, "sourceInstanceName")
+        value: _.get(parent, "sourceInstanceName"),
       });
       createNodeField({
         node,
         name: "parentDir",
-        value: _.get(parent, "relativeDirectory")
+        value: _.get(parent, "relativeDirectory"),
       });
     }
   }
