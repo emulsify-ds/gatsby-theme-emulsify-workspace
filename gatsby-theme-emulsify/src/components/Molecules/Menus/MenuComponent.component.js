@@ -17,24 +17,33 @@ export default class MenuComponent extends Component {
     menu.forEach((item) => {
       let isActive = false;
       // Only add one Components subitem to menu - should be refactored later.
-      if (item.name === "Code") {
-        // Mark the item active if its id is the same as the id of the current page.
-        isActive = item.childMdx.id === id;
-        if (!isActive) {
-          // Also mark the item active if the current page id corresponds to a menu item that shares a prefix with the Code item (sibling).
-          let prefix = item.childMdx.fields.slug.replace("code/", "");
-          let siblings = menu.filter((menuitem) =>
-            menuitem.childMdx
-              ? menuitem.childMdx.id === id &&
-                menuitem.childMdx.fields.slug.startsWith(prefix)
-              : ""
-          );
-          isActive = siblings.length > 0;
+      if (item.childMdx) {
+        if (
+          item.sourceInstanceName === "components" &&
+          item.childMdx.frontmatter.tabOrder === 1
+        ) {
+          // Mark the item active if its id is the same as the id of the current page.
+          isActive = item.childMdx.id === id;
+          if (!isActive) {
+            // Also mark the item active if the current page id corresponds to a menu item that shares a prefix with the Code item (sibling).
+            let slashlessPrefix = item.childMdx.fields.slug.slice(0, -1);
+            let prefix = slashlessPrefix.substring(
+              0,
+              slashlessPrefix.lastIndexOf("/")
+            );
+            let siblings = menu.filter((menuitem) =>
+              menuitem.childMdx
+                ? menuitem.childMdx.id === id &&
+                  menuitem.childMdx.fields.slug.startsWith(prefix)
+                : ""
+            );
+            isActive = siblings.length > 0;
+          }
+          directoryTree.children.push({
+            item: item,
+            active: isActive,
+          });
         }
-        directoryTree.children.push({
-          item: item,
-          active: isActive,
-        });
       }
     });
 

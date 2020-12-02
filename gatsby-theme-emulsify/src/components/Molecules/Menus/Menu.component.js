@@ -16,38 +16,12 @@ export default class Menu extends Component {
 
     menu.forEach((item) => {
       let isActive = false;
-      // Components
-      if (item.sourceInstanceName === "components") {
-        // Only add one Components subitem to menu - should be refactored later.
-        if (item.name === "Code") {
-          // Mark the item active if its id is the same as the id of the current page.
-          isActive = item.childMdx.id === id;
-          if (!isActive) {
-            // Also mark the item active if the current page id corresponds to a menu item that shares a prefix with the Code item (sibling).
-            let prefix = item.childMdx.fields.slug.replace("code/", "");
-            let siblings = menu.filter((menuitem) =>
-              menuitem.childMdx
-                ? menuitem.childMdx.id === id &&
-                  menuitem.childMdx.fields.slug.startsWith(prefix)
-                : ""
-            );
-            isActive = siblings.length > 0;
-          }
-          directoryTree.children.push({
-            item: item,
-            active: isActive,
-          });
-        }
-      }
-      // Pages
-      else {
-        if (item.childMdx) {
-          isActive = item.childMdx.id === id;
-          directoryTree.children.push({
-            item: item,
-            active: isActive,
-          });
-        }
+      if (item.childMdx) {
+        isActive = item.childMdx.id === id;
+        directoryTree.children.push({
+          item: item,
+          active: isActive,
+        });
       }
     });
 
